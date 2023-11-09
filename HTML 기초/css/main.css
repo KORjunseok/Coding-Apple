@@ -1,0 +1,17 @@
+.profile {
+  width: 150px;
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+  text-align: center;
+}
+
+.developfile {
+  color: red; 
+  font-weight:600;
+}
+
+p {
+  /* font-size: 50px; font-weight: 400 */
+  text-align: center;
+}
