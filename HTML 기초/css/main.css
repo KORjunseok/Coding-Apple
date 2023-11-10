@@ -15,3 +15,97 @@ p {
   /* font-size: 50px; font-weight: 400 */
   text-align: center;
 }
+
+.content {
+  text-align: center;
+}
+
+.box { 
+  width: 200px;
+  background-color: cadetblue;
+  margin : 10px;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  box-shadow: 5px 5px black;
+
+  /* 아래 세개 속성 쓰면 가운데 정렬 가능 */
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.container {
+  width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background: aquamarine;
+}
+
+.left-menu {
+  width:20%;
+  height: 400px;
+  background: cornflowerblue;
+  /* float:left; */
+  display: inline-block;
+}
+
+.right {
+  width:80%;
+  height:400px;
+  background: coral;
+  /* float:left; */
+  display: inline-block;
+  vertical-align: top;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: grey;
+  /* clear:both; */
+}
+
+.blog-content {
+  width: 80%;
+  height: 200px;
+  float: left;
+}
+
+.blog-img {
+  width: 20%;
+  height: 200px;
+  float: left;
+}
+
+.blog-profile {
+  width:50px;
+  display: block;
+  float:left;
+}
+
+.blog-name {
+  float:left;
+}
+
+.navbar li{
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.navbar a{
+  font-size: 16px;
+  text-decoration: none; 
+}
