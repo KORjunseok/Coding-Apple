@@ -118,10 +118,25 @@ p {
   background-repeat: no-repeat;
   background-position: center;
   padding: 1px;
+  position: relative;
 }
 
 .main-title {
   color: blue;
   font-size: 40px;
   margin-top: 300px;
+}
+
+.main-button {
+  padding: 15px;
+  font-size: 20px;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  left :0;
+  right: 0;
+  margin: auto;
+  width: 150px;
+
 }
