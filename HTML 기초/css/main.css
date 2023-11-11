@@ -1,3 +1,11 @@
+div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
 .profile {
   width: 150px;
   display: block; 
@@ -138,5 +146,19 @@ p {
   right: 0;
   margin: auto;
   width: 150px;
-
+  bottom: 150px;
 }
+
+.explain-box {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #eee;
+  margin-top: -50px;
+  position: relative;
+  top: -15px;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
