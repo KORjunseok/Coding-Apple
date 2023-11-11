@@ -109,3 +109,19 @@ p {
   font-size: 16px;
   text-decoration: none; 
 }
+
+.main-background {
+  width: 100%;
+  height: 500px;
+  background-image: url(../img/빠이\ 1.PNG), url(../오준석w3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1px;
+}
+
+.main-title {
+  color: blue;
+  font-size: 40px;
+  margin-top: 300px;
+}
