@@ -1,4 +1,4 @@
-div {
+div, input, textarea {
   box-sizing: border-box;
 }
 
@@ -19,10 +19,6 @@ body {
   font-weight:600;
 }
 
-p {
-  /* font-size: 50px; font-weight: 400 */
-  text-align: center;
-}
 
 .content {
   text-align: center;
@@ -167,4 +163,42 @@ input[type=text] {
   font-size: 20px;
   border: 2px solid black;
   border-radius: 5px;
+}
+
+.form-background {
+  background-color: black;
+  padding: 30px;
+}
+
+.form-white {
+  background-color: white;
+  padding: 30px;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;  
+}
+.form-input {
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.w-50 {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+
+.w-100 {
+  width: 100%;
+  padding: 10px;
+}
+
+.yellow-button {
+  padding: 10px;
+  display: block;
+  margin-left: auto;
 }
