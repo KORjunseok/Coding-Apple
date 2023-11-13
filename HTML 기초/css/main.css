@@ -1,13 +1,20 @@
-div {
+@font-face {
+  font-family: '이쁜폰트';
+  src : url(../font/NanumSquareNeo-eHv.woff)
+}
+
+div, input, textarea {
   box-sizing: border-box;
 }
 
 body {
   margin: 0px;
+  font-family: '이쁜폰트';
+  font-weight: 100;
 }
 
-td,th {
-  /* border: 1px solid black; */
+p, h4, h3, h2, h1, span {
+  transform: rotate(0.03deg);
 }
 
 table { 
