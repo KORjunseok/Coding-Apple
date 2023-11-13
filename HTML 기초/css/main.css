@@ -237,3 +237,46 @@ input[type=text] {
 .cart-table th:nth-child(2) {
   width: 400px;
 }
+
+.btn {
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: coral;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: chocolate;
+}
+
+.btn:focus {
+  background-color: grey;
+}
+
+.btn:active {
+  background-color: brown;
+  border: 2px solid black;
+}
+
+.input-test {
+  font-size: 20px;
+}
+
+input-test:focus {
+  border: 2px solid red;
+}
+
+.custom-link {
+  text-decoration: none;
+}
+
+.custom-link:link {
+  color: violet
+}
+
+.custom-link:visited {
+  color: black;
+}
