@@ -306,3 +306,25 @@ input-test:focus {
 .bg-blue {
   background: blue;
 }
+
+.flex-item {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  margin: 5px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.nav-container {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
