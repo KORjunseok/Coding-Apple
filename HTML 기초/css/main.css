@@ -328,3 +328,39 @@ input-test:focus {
 .nav-item {
   margin-right: 10px;
 }
+
+.product-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product-container div {
+  float: left;
+  width: 25%;
+  text-align: center  ;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-title {
+    font-size: 20px;
+  }
+  .product-container div {
+    width: 50%;
+  }
+  .product-container {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 20px;
+  }
+
+  .product-container div {
+    width: 100%;
+  }
+}
