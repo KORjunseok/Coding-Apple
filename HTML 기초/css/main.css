@@ -345,7 +345,7 @@ input-test:focus {
 
 @media screen and (max-width: 1200px) {
   .main-title {
-    font-size: 20px;
+    font-size: 30px;
   }
   .product-container div {
     width: 50%;
@@ -359,6 +359,12 @@ input-test:focus {
   .main-title {
     font-size: 20px;
   }
+
+@media screen and (max-width: 576px) {
+  .main-title {
+    font-size: 10px;
+  }
+}
 
   .product-container div {
     width: 100%;
