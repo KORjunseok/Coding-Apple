@@ -370,3 +370,7 @@ input-test:focus {
     width: 100%;
   }
 }
+
+.main-background .custom {
+  color: green;
+}
