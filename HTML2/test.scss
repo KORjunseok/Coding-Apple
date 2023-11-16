@@ -64,3 +64,52 @@ h4 {
   font-size: 10px;
   letter-spacing: -1px;
 }
+
+.sh-list {
+  li {
+    list-style: none;
+    padding: 15px;
+    // margin: 50px;
+    border: 1px solid #eee;
+  } 
+  .active:hover{
+    background-color: skyblue;
+    color: white;
+  }
+}
+
+.alert-box-green {  
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  background: green;
+  color: white;
+}
+
+.alert-box-orange {
+  @extend .alert-box-green;
+  background: orange;
+}
+
+.alert-box-blue {
+  @extend .alert-box-green;
+  background: skyblue;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+@mixin column($변수){
+  float: left;
+  width: $변수;
+  padding: 15px;
+}
+
+.row .col-6 {
+  @include column(50%)
+}
+
+.row .col-4 {
+  @include column(33.33%)
+}

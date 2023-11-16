@@ -56,4 +56,46 @@ h3 {
 h4 {
   font-size: 10px;
   letter-spacing: -1px;
+}
+
+.sh-list li {
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+.sh-list .active:hover {
+  background-color: skyblue;
+  color: white;
+}
+
+.alert-box-green, .alert-box-blue, .alert-box-orange {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  background: green;
+  color: white;
+}
+
+.alert-box-orange {
+  background: orange;
+}
+
+.alert-box-blue {
+  background: skyblue;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.row .col-6 {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+
+.row .col-4 {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
 }/*# sourceMappingURL=test.css.map */
