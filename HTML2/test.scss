@@ -1,0 +1,14 @@
+$main-color : #2a4cb2;
+$서브칼라 : #eeeeee;
+$기본사이즈 : 20px;
+
+.background {
+  background-color: $main-color;
+  font-size: $기본사이즈 - 2px;
+}
+
+.box {
+  width:100%;
+  font-size: $기본사이즈 + 2px;
+}
+

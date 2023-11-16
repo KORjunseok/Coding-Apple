@@ -1,0 +1,15 @@
+/* Sass를 쓰지 않고 기본 Css에서의 변수 주는 방법
+:root {
+  --main-color : red;
+} */
+
+
+.background {
+  background-color: #2a4cb2;
+  font-size: 18px;
+}
+
+.box {
+  width: 100%;
+  font-size: 22px;
+}/*# sourceMappingURL=test.css.map */
