@@ -2,6 +2,8 @@ $메인칼라 : #2a4cb2;
 $서브칼라 : #eeeeee;
 $기본사이즈 : 20px;
 
+@use 'reset';
+
 .background {
   background-color: $메인칼라;
 }
@@ -10,6 +12,7 @@ $기본사이즈 : 20px;
   color: $서브칼라;
 }
 
+// 셀렉터 대신 쓰는 Nesting
 .main-bg {
   width: 100px;
   h4 {
@@ -20,13 +23,14 @@ $기본사이즈 : 20px;
   }
 }
 
+// 이미 있는 클래스를 확장하는 @extend 
 %btn {
   width: 100px;
   height: 100px;
   padding: 20px;
 }
 
-.btn-green {
+.btn-green { 
   @extend %btn;
   color: green;
 }
@@ -39,4 +43,24 @@ $기본사이즈 : 20px;
 .btn-blue {
   @extend %btn;
   color: blue
+}
+
+
+@mixin 폰트스타일($구멍, $구멍2){
+  font-size: $구멍;
+  letter-spacing: $구멍2;
+}
+
+h2 {
+  @include 폰트스타일(40px, 4px);
+  color: reset.$냠냠;
+}
+
+h3 {
+  @include 폰트스타일(30px, 5px);
+}
+
+h4 {
+  font-size: 10px;
+  letter-spacing: -1px;
 }
