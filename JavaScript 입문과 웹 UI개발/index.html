@@ -9,18 +9,23 @@
 <body>
 
     <div class="alert-box" id="alert">알림창임
-      <button onclick ="알림창열기('none')">닫기</button>
+     
       </div>
     <button onclick="알림창열기('block', '아이디')">버튼1</button>
     <button onclick="알림창열기('block', '비번')">버튼2</button>
-    
+    <button id ="close">닫기</button>
+    <!-- <button onclick ="알림창열기('none')">닫기</button> -->
 
 
   <script>
     function 알림창열기(구멍, 구멍2) {
-      document.getElementById('alert').style.display=구멍;
       document.getElementById('alert').innerHTML=`${구멍2}`+"입력하세요";
+      document.getElementById('alert').style.display=구멍; 
     }
+
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display='none';
+    })
 
     // function 알림창닫기(구멍) {
     //  document.getElementById('alert').style.display=구멍;
