@@ -4,33 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <div class="alert-box" id="alert">알림창임
-     
-      </div>
-    <button onclick="알림창열기('block', '아이디')">버튼1</button>
-    <button onclick="알림창열기('block', '비번')">버튼2</button>
-    <button id ="close">닫기</button>
-    <!-- <button onclick ="알림창열기('none')">닫기</button> -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
 
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul> 
 
   <script>
-    function 알림창열기(구멍, 구멍2) {
-      document.getElementById('alert').innerHTML=`${구멍2}`+"입력하세요";
-      document.getElementById('alert').style.display=구멍; 
-    }
 
-    document.getElementById('close').addEventListener('click', function(){
-      document.getElementById('alert').style.display='none';
+    document.querySelector('.navbar-toggler').addEventListener('click', function(){
+      document.querySelector('.list-group').classList.toggle('show')
+
     })
 
-    // function 알림창닫기(구멍) {
-    //  document.getElementById('alert').style.display=구멍;
-    // } 
-
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
