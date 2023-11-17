@@ -444,3 +444,112 @@ progress::-moz-progress-bar {
   background-color: red;
   border-radius: 2px;
 }
+
+.ani-text {
+ text-align: center;
+}
+
+.ani-text:hover {
+  animation-name: 왔다갔다;
+  animation-duration: 1s;
+}
+
+@keyframes 왔다갔다 {
+  0% {
+    transform: translateX(0px);
+  } 
+  50% {
+    transform: translateX(-100px);
+    /* margin-left: -100px; */
+
+  }
+  75% {
+    transform: translateX(100px);
+
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.ani-button {
+  padding: 15px 20px;
+  font-size: 20px;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 30px auto;
+}
+
+.ani-button:hover {
+  animation-name: shake;
+  animation-duration: 1s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.ani-x {
+  margin: 150px auto;
+  text-align: center;
+  font-size: 70px;
+  width: 84px;
+  cursor: pointer;
+}
+
+.ani-x:hover {
+  animation-name: turn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes turn {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(-15deg);}
+  100% {transform: rotate(45deg) scale(1.5);}
+}
+
+.ani-navbar {
+  width: 200px;
+  background-color: black;
+  color: white;
+  height: 100%;
+  padding: 25px;
+  position: fixed;
+  z-index: 5;
+  text-align: right;
+  transition: all 1s;
+  transform: translateX(-150px);
+}
+
+.ani-navbar:hover {
+  transform: translateX(0px);
+  text-align: center;
+}
+.ani-navbar:hover p {
+  animation-name: slide;
+  animation-duration: 1s;
+}
+
+@keyframes slide {
+  0% {transform: translateX(-250px);}
+  50% {transform: translateX(20px) skewX(-30deg);}
+  100% {transform: translateX(0px);}
+}
