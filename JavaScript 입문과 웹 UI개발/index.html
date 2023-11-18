@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인하세요</h4>
+      <button class="btn btn-danger" id="close">닫기</button>
+    </div>
+  </div>
+
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand">Navbar</span>
@@ -27,14 +34,19 @@
     <li class="list-group-item">And a fifth one</li>
   </ul> 
 
+  <button id="login">로그인</button>
+
+  <!-- <p class="hello">안녕</p>
   <p class="hello">안녕</p>
   <p class="hello">안녕</p>
-  <p class="hello">안녕</p>
-  <button id="test-btn">버튼</button>
+  <button id="test-btn">버튼</button> -->
 
   <script>
-    //  document.querySelector('.hello').innerHTML="바보"; 
-    //$('.hello').html('바보래용');
+    $('#login').on('click', function(){
+      // document.querySelector('.black-bg').classList.add('show-modal') 
+      $('.black-bg').addClass('show-modal')
+    })
+
     $('.hello').html('바보');
     $('.hello').css('color', 'red');
 
