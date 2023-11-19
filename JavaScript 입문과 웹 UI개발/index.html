@@ -37,9 +37,16 @@
 
   // 전송버튼 누르면 
   // input에 입력한 값이 공백이면 알림창 띄우기
-    $('form').on('submit', function(){
-      if (document.getElementById('email').value == ''){
-        alert('아이디입력안함')
+    $('form').on('submit', function(e){
+      var 입력한값 = document.getElementById('email').value;
+
+      if (입력한값 == ''){
+        alert('아이디입력안함');
+      }
+      if ( /\S+@\S+\.\S+/.test(입력한값) ){
+        alert('이메일형식아님')
+        e.preventDefault();
+      
       }
     });
 
@@ -69,10 +76,25 @@
   </div>
 
   <div class ="alert alert-danger">
-    <span class="second">5</span>초 이내 구매시 사은품 증정!
+    <span id="num">5</span>초 이내 구매시 사은품 증정!
   </div>
 
   <script>
+
+    // 정규식으로 이메일 형식 검증
+    /\S+@\S+.\S+/.test('aaa@bbb.ccc')
+
+    // 숙제
+    let count = 5;
+
+  setInterval(function(){
+    count -= 1;
+    if (count >= 0){
+      document.querySelector('#num').innerHTML = count;
+    } 
+  }, 1000);
+
+
     // setTimeout(function(){
     //   $('.alert').hide();
     // }, 5000)
@@ -95,7 +117,7 @@
       $('.black-bg').addClass('show-modal')
     })
     
-    var count = 0;
+    // var count = 0;
 
     $('.badge').on('click', function(){
       count++
