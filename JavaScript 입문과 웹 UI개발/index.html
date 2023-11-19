@@ -68,11 +68,25 @@
   <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
+  <div class ="alert alert-danger">
+    <span class="second">5</span>초 이내 구매시 사은품 증정!
+  </div>
+
   <script>
+    // setTimeout(function(){
+    //   $('.alert').hide();
+    // }, 5000)
+
+    // setInterval(function(){
+    //  console.log('1초마다 안녕')
+    // }, 1000)
+
+    setTimeout(함수, 1000)
+
     function 함수() {
-      var 이름 = 'kim';
-      console.log(이름)
+      console.log('안녕')
     }
+
 
 
     $('#login').on('click', function(){
