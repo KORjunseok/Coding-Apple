@@ -47,7 +47,8 @@
 
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">OJSbar</span>
+      <span class="badge bg-dark">Dark 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -67,17 +68,19 @@
   <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
-
-  <!-- <p class="hello">안녕</p>
-  <p class="hello">안녕</p>
-  <p class="hello">안녕</p>
-  <button id="test-btn">버튼</button> -->
-
   <script>
     $('#login').on('click', function(){
       // document.querySelector('.black-bg').classList.add('show-modal') 
       $('.black-bg').addClass('show-modal')
     })
+    
+    var count = 0;
+
+    $('.badge').on('click', function(){
+      count++
+      console.log(count)
+    });
+    
 
     $('.hello').html('바보');
     $('.hello').css('color', 'red');
