@@ -25,7 +25,6 @@
          <button type="button" class="btn btn-danger" id="close">닫기</button>
       </form>
 
-      <button class="btn btn-danger" id="close">닫기</button>
     </div>
   </div>
 
@@ -107,6 +106,20 @@
   <div style="height: 1000px;"></div>
 
   <script>
+    $('#login').on('click', function(){
+      $('.black-bg').addClass('show-modal');
+    })
+
+    document.querySelector('.black-bg').addEventListener('click', function(e){
+      if ( e.target == document.querySelector('.black-bg') ) {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      }
+    })
+
+    //    $('.black-bg').on('click', function(){
+    //  $('.black-bg').removeClass('show-modal');
+    // })
+
     // 페이지 스크롤바 100이상 내리면 로고 폰트사이즈 줄여주셈
     $(window).on('scroll', function(){
       if(window.scrollY >100) {
@@ -128,16 +141,7 @@
       }
     })
 
-    <!-- window.addEventListener('scroll', function(){
-      window.scrollBy(0,100);
-    });
-    
-    $(window).on('scroll', function(){
-      $(window).scrollTop(100)
-    })  -->
-
-
-
+  
   console.log(vat(55555));
   function vat(a){
     var num = (a*1.1).toFixed(1);
@@ -176,15 +180,6 @@
     })
 
 
-    // 숙제
-    let count = 5;
-
-  setInterval(function(){
-    count -= 1;
-    if (count >= 0){
-      document.querySelector('#num').innerHTML = count;
-    } 
-  }, 1000);
 
 
     // setTimeout(function(){
