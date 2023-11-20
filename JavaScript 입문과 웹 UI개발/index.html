@@ -75,14 +75,46 @@
   <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
-  <div class ="alert alert-danger">
+  <!-- <div class ="alert alert-danger">
     <span id="num">5</span>초 이내 구매시 사은품 증정!
+  </div> -->
+
+<div style="overflow:hidden">
+  <div class="slide-container">
+    <div class="slide-box">
+      <img src ="img/car1.png">
+    </div>
+    <div class="slide-box">
+      <img src ="img/car2.png">
+    </div>
+    <div class="slide-box">
+      <img src ="img/car3.png">
+    </div>
+  </div>
+  
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button>다음</button>
+
   </div>
 
   <script>
+    // 버튼 1 누르면 이동
+    $('.slide-1').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(0vw)');
+    })
 
-    // 정규식으로 이메일 형식 검증
-    /\S+@\S+.\S+/.test('aaa@bbb.ccc')
+    // 버튼 2 누르면 이동
+    $('.slide-2').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(-100vw)');
+    })
+
+    // 버튼 3 누르면 이동
+    $('.slide-3').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(-200vw)');
+    })
+
 
     // 숙제
     let count = 5;
