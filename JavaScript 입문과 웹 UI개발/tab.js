@@ -31,11 +31,22 @@ function 탭열기(숫자) {
 }
 
 var car = ['소나타', 50000, 'white'];
-var car2 = {name:'소나타',price:50000}
+var car2 = {name:'소나타',price:[50000, 3000, 4000]}
 console.log(car2.name)
 
 car.sort();
 console.log(car)
 
-document.querySelectorAll('span')[0].innerHTML =car2.name
-document.querySelectorAll('span')[1].innerHTML =car2.price
+document.querySelector('.car-title').innerHTML =car2.name
+document.querySelector('.car-price').innerHTML =car2.price[0]
+
+console.log(car2['price'])
+
+let products = [
+  { id : 0, price : 70000, title : 'Blossom Dress' },
+  { id : 1, price : 50000, title : 'Springfield Shirt' },
+  { id : 2, price : 60000, title : 'Black Monastery' }
+];
+
+console.log(products[0].title)
+console.log(products[1].title)
