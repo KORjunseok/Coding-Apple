@@ -107,21 +107,34 @@
   <div style="height: 1000px;"></div>
 
   <script>
+    // 페이지 스크롤바 100이상 내리면 로고 폰트사이즈 줄여주셈
+    $(window).on('scroll', function(){
+      if(window.scrollY >100) {
+        $('.navbar-brand').css('font-size', '20px');
+      } else {
+        if(window.scrollY <100) {
+          $('.navbar-brand').css('font-size', '25px');
+        }
+      }
+    })
+
     // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
     $('.lorem').on('scroll', function(){
       var 스크롤양 = document.querySelector('.lorem').scrollTop;
       var 실제높이 = document.querySelector('.lorem').scrollHeight;
       var 높이 = document.querySelector('.lorem').clientHeight;
-      console.log(스크롤양, 실제높이, 높이);
+      if(스크롤양 + 높이>실제높이-10){
+        alert('다읽음')
+      }
     })
 
-    window.addEventListener('scroll', function(){
+    <!-- window.addEventListener('scroll', function(){
       window.scrollBy(0,100);
     });
     
     $(window).on('scroll', function(){
       $(window).scrollTop(100)
-    })
+    })  -->
 
 
 
