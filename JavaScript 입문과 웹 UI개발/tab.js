@@ -29,3 +29,13 @@ function 탭열기(숫자) {
   $('.tab-content').removeClass('show');
   $('.tab-content').eq(숫자).addClass('show'); 
 }
+
+var car = ['소나타', 50000, 'white'];
+var car2 = {name:'소나타',price:50000}
+console.log(car2.name)
+
+car.sort();
+console.log(car)
+
+document.querySelectorAll('span')[0].innerHTML =car2.name
+document.querySelectorAll('span')[1].innerHTML =car2.price
