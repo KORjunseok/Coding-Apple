@@ -62,6 +62,8 @@
     </div>
   </nav>
 
+
+
   <ul class="list-group">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
@@ -75,6 +77,9 @@
   <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
+  <div class="lorem" style="width:200px; height:100px; overflow-y: scroll">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aliquam assumenda, quam facere nobis odit perferendis atque corrupti dolores, nesciunt velit nemo fugit quia cupiditate vel nostrum eos accusantium. Consequatur.
+  </div>
   <!-- <div class ="alert alert-danger">
     <span id="num">5</span>초 이내 구매시 사은품 증정!
   </div> -->
@@ -99,10 +104,28 @@
 
   </div>
 
+  <div style="height: 1000px;"></div>
+
   <script>
+    // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
+    $('.lorem').on('scroll', function(){
+      var 스크롤양 = document.querySelector('.lorem').scrollTop;
+      var 실제높이 = document.querySelector('.lorem').scrollHeight;
+      var 높이 = document.querySelector('.lorem').clientHeight;
+      console.log(스크롤양, 실제높이, 높이);
+    })
+
+    window.addEventListener('scroll', function(){
+      window.scrollBy(0,100);
+    });
+    
+    $(window).on('scroll', function(){
+      $(window).scrollTop(100)
+    })
+
+
 
   console.log(vat(55555));
-
   function vat(a){
     var num = (a*1.1).toFixed(1);
     return parseFloat(num)
