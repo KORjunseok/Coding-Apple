@@ -61,10 +61,15 @@ products.forEach((a, i)=> {
     <img src="https://via.placeholder.com/600" class="w-100">
     <h5>${products[i].title}</h5>
     <p>가격 : ${products[i].price}</p>
-    <button>구매</button>
+    <button class="buy">구매</button>
   </div>`;
   $('.row').append(템플릿)  
 })
+
+$('.buy').click(function(){
+  var title = $(e.target).siblings('h5').text();
+  console.log(title)
+});
 
 var arr = [1,2,3,4,5,6];
 var newArr = JSON.stringify(arr);
