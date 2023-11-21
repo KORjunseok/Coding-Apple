@@ -37,6 +37,13 @@
     </div>
   </div>
 
+  <div class="container my-3">
+    <button class="btn btn-danger" id="price">가격순정렬</button>
+  </div>
+  <div class="container my-3">
+    <button class="btn btn-danger" id="sort1">다나가순정렬</button>
+  </div>
+
   <script>
 
     var products = [
@@ -45,8 +52,23 @@
   { id : 2, price : 60000, title : 'Black Monastery' }
 ];
 
-console.log(products[0].title)
-console.log(products[1].title)
+$('#sort1').click(function(){
+  products.sort(function(a, b){
+    if (a.title < b.title) {
+      return 1
+    } else {
+      return -1
+    }
+  });
+  $('.row').html(''); //카드 다 없애주셈
+  products.forEach((a, i)=>{
+    var 템플릿 = `<div>상품명은 ${products[i].title}</div>`;
+    $('.row').append(템플릿)
+  })
+});
+
+
+
 
 $('.card-body h5').eq(0).html(products[0].title);
 $('.card-body p').eq(0).html("가격은 " + products[0].price)
@@ -82,14 +104,7 @@ document.querySelectorAll('.card-body p')[2].innerHTML="가격은 " + products[2
         });
     });
         
-    
 
-
-    <!-- $.get('https://codingapple1.github.io/price.json').done(function (data) {
-      console.log(data.price);
-    }).fail(function(){
-      console.log('실패함')
-    }) -->
 
   </script>
 
