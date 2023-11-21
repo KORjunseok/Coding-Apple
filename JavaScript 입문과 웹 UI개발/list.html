@@ -59,6 +59,15 @@ document.querySelectorAll('.card-body p')[2].innerHTML="가격은 " + products[2
 
   </script>
 
+  <script> 
+
+    $.get('https://codingapple1.github.io/price.json').done(function (data) {
+      console.log(data.price);
+    }).fail(function(){
+      console.log('실패함')
+    })
+
+  </script>
 
 
 
