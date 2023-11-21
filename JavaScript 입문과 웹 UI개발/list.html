@@ -59,13 +59,37 @@ document.querySelectorAll('.card-body p')[2].innerHTML="가격은 " + products[2
 
   </script>
 
-  <script> 
+  <div class="container">
+    <button class="btn btn-danger" id="more">더보기</button>
+  </div>
+  
 
-    $.get('https://codingapple1.github.io/price.json').done(function (data) {
+  <script> 
+    $('#more').click(function(){
+      $.get('https://codingapple1.github.io/js/more1.json')
+        .done((data)=>{
+          
+          data.forEach((a, i)=>{
+            var 템플릿 = 
+            `<div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>${data[i].title}</h5>
+              <p>가격 : ${data[i].price}</p>
+            </div>`;
+            $('.row').append(템플릿)
+          })
+          
+        });
+    });
+        
+    
+
+
+    <!-- $.get('https://codingapple1.github.io/price.json').done(function (data) {
       console.log(data.price);
     }).fail(function(){
       console.log('실패함')
-    })
+    }) -->
 
   </script>
 
