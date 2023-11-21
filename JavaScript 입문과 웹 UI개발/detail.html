@@ -22,12 +22,17 @@
     <select class="form-select mt-2">
       <option>모자</option>
       <option>셔츠</option>
+      <option>바지</option>
     </select>
     <select class="form-select mt-2 form-hide">
       <option>95</option>
       <option>100</option>
     </select>
 </form>
+
+  <div id="test">
+
+  </div>
 
 
   <div class="container mt-5">
@@ -48,11 +53,26 @@
   </div>   
 
   <script>
+    //    var 템플릿 = '<p>안녕</p>';
+    // document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
+    // $('#test').html(템플릿);
+    
+    // var a = document.createElement('p');
+    // a.innerHTML = '안녕';
+    // document.querySelector('#test').appendChild(a);
+
     $('.form-select').eq(0).on('input', function(){
       var value = $('.form-select').eq(0).val()
       if (value == '셔츠'){
         $('.form-select').eq(1).removeClass('form-hide');
+        
+      } else if (value == '바지') {
+        $('.form-select').eq(1).removeClass('form-hide');
+        var 템플릿 = `<option>28</option>
+          <option>30</option>`;
+          $('.form-select').eq(1).append(템플릿)
       }
+
     })
 
   </script>
