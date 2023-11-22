@@ -12,10 +12,23 @@
 
   <script>
 
-    function 간지나는함수(){
-      console.log(this)
+    function 기계(){
+      this.이름 = "Kim"
+    }
+    var 뉴기계 = new 기계();
+    console.log(뉴기계);
+
+    var 오브젝트 = {
+      이름들 : ['김', '이', '박'],
+      함수 : function(){
+        console.log(this)
+        오브젝트.이름들.forEach(()=>{
+          console.log(this)
+        })
+      }
     }
 
+    오브젝트.함수()
   </script>
 
 </body>
