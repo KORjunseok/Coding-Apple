@@ -25,7 +25,6 @@
          <button type="button" class="btn btn-danger" id="close">닫기</button>
       </form>
 
-      <button class="btn btn-danger" id="close">닫기</button>
     </div>
   </div>
 
@@ -62,6 +61,8 @@
     </div>
   </nav>
 
+
+
   <ul class="list-group">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
@@ -75,24 +76,110 @@
   <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
-  <div class ="alert alert-danger">
+  <div class="lorem" style="width:200px; height:100px; overflow-y: scroll">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste aliquam assumenda, quam facere nobis odit perferendis atque corrupti dolores, nesciunt velit nemo fugit quia cupiditate vel nostrum eos accusantium. Consequatur.
+  </div>
+  <!-- <div class ="alert alert-danger">
     <span id="num">5</span>초 이내 구매시 사은품 증정!
+  </div> -->
+
+<div style="overflow:hidden">
+  <div class="slide-container">
+    <div class="slide-box">
+      <img src ="img/car1.png">
+    </div>
+    <div class="slide-box">
+      <img src ="img/car2.png">
+    </div>
+    <div class="slide-box">
+      <img src ="img/car3.png">
+    </div>
+  </div>
+  
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button class="next">다음</button>
+
   </div>
 
+  <div style="height: 1000px;"></div>
+
   <script>
+    $('#login').on('click', function(){
+      $('.black-bg').addClass('show-modal');
+    })
 
-    // 정규식으로 이메일 형식 검증
-    /\S+@\S+.\S+/.test('aaa@bbb.ccc')
+    document.querySelector('.black-bg').addEventListener('click', function(e){
+      if ( e.target == document.querySelector('.black-bg') ) {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      }
+    })
 
-    // 숙제
-    let count = 5;
+    //    $('.black-bg').on('click', function(){
+    //  $('.black-bg').removeClass('show-modal');
+    // })
 
-  setInterval(function(){
-    count -= 1;
-    if (count >= 0){
-      document.querySelector('#num').innerHTML = count;
-    } 
-  }, 1000);
+    // 페이지 스크롤바 100이상 내리면 로고 폰트사이즈 줄여주셈
+    $(window).on('scroll', function(){
+      if(window.scrollY >100) {
+        $('.navbar-brand').css('font-size', '20px');
+      } else {
+        if(window.scrollY <100) {
+          $('.navbar-brand').css('font-size', '25px');
+        }
+      }
+    })
+
+    // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
+    $('.lorem').on('scroll', function(){
+      var 스크롤양 = document.querySelector('.lorem').scrollTop;
+      var 실제높이 = document.querySelector('.lorem').scrollHeight;
+      var 높이 = document.querySelector('.lorem').clientHeight;
+      if(스크롤양 + 높이>실제높이-10){
+        alert('다읽음')
+      }
+    })
+
+  
+  console.log(vat(55555));
+  function vat(a){
+    var num = (a*1.1).toFixed(1);
+    return parseFloat(num)
+  }
+
+    var 지금사진 = 1;
+
+    // 다음버튼 누르면 1 > 2 > 3 > 1 
+    $('.next').on('click', function(){
+      if(지금사진 == 1 ){
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+        지금사진 += 1;
+      } else if (지금사진 == 2 ) { 
+        $('.slide-container').css('transform', 'translateX(-200vw)');
+        지금사진 +=1;
+      } else {
+        $('.slide-container').css('transform', 'translateX(0vw)');
+        지금사진 = 1;
+      }
+    })
+
+    // 버튼 1 누르면 이동
+    $('.slide-1').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(0vw)');
+    })
+
+    // 버튼 2 누르면 이동
+    $('.slide-2').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(-100vw)');
+    })
+
+    // 버튼 3 누르면 이동
+    $('.slide-3').on('click', function(){
+      $('.slide-container').css('transform', 'translateX(-200vw)');
+    })
+
+
 
 
     // setTimeout(function(){
