@@ -106,6 +106,11 @@
   <div style="height: 1000px;"></div>
 
   <script>
+
+    $('.slide-box').eq(0).on('mousedown', function(e){
+      e.clientX
+    });
+
     $('#login').on('click', function(){
       $('.black-bg').addClass('show-modal');
     })
