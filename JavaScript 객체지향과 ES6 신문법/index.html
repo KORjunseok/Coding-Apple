@@ -55,9 +55,17 @@
   console.log(window.나이2);
 
 
-  for (let i = 0; i < 5; i++) { 
-    setTimeout(function() { console.log(i); }, i*1000 ); 
+
+  var 변수 = '손흥민';
+  var 문자 = `안녕하세요 ${변수} 입니다.`;
+
+  function 해체분석기(문자들, 변수들){
+    console.log(문자들);
+    console.log(변수들);
   }
+
+  해체분석기`안녕하세요 ${변수} 입니다.`;
+
   </script>
 
 </body>
