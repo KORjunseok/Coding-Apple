@@ -52,14 +52,12 @@
     }
 
   window.나이2 = 20;
-
   console.log(window.나이2);
 
-  {
-    console.log(foo); // ReferenceError: foo is not defined
-    let foo = 2; // 지역 변수
-  }
 
+  for (let i = 0; i < 5; i++) { 
+    setTimeout(function() { console.log(i); }, i*1000 ); 
+  }
   </script>
 
 </body>
