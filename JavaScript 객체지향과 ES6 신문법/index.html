@@ -232,7 +232,7 @@ function 글자세기(글자) {
 
     var 자식 = new 부모('siasia') */
 
-    class 부모 {
+    /* class 부모 {
       constructor(이름, 나이){
         this.name = 이름;
         this.age = 나이;
@@ -245,7 +245,30 @@ function 글자세기(글자) {
       }
     }
     
-    var 자식 = new 부모('Park');
+    var 자식 = new 부모('Park'); */
+
+    class 할아버지 {
+      constructor(name){
+        this.성 = 'Kim';
+        this.이름 = name;
+      }
+      sayHi(){
+        console.log('안녕 저는 할아버지에요.');
+      }
+    }
+
+    class 아버지 extends 할아버지 {
+      constructor(name){
+        super(name)
+        this.나이 = 50;
+      }
+      sayHi(){
+        console.log('안녕 저는 아버지에요.');
+        super.sayHi();
+      }
+    }
+    var 아버지1 = new 아버지('만수');
+
 </script>
 
 </body>
