@@ -163,7 +163,7 @@ function 글자세기(글자) {
       }
     }; */
 
-    function 기계(이름) {
+    /* function 기계(이름) {
       this.name = 이름;
       this.age = 15;
       this.sayHi = function(){
@@ -174,7 +174,7 @@ function 글자세기(글자) {
     기계.prototype.gender = '남';
 
     var 학생1 = new 기계('Park');
-    var 학생2 = new 기계('Oh');
+    var 학생2 = new 기계('Oh'); */
 
 
     // 연습문제 
@@ -189,10 +189,31 @@ function 글자세기(글자) {
     var product1 = new 상품데이터('shirts', 50000)
     var product2 = new 상품데이터('pants', 60000) */
 
+    // constructor, prototype
+    function 출석부(이름, 나이){
+      this.name = 이름;
+      this.age = 나이;
+      this.sayHi = function() {
+        console.log('안녕 나는' + this.name + '이야');
+      }
+    }
+
+    let 학생1 = new 출석부('Kim', 20)
+    let 학생2 = new 출석부('Park', 21)
+    let 학생3 = new 출석부('Lee', 22)
+
+    Array.prototype.remove3 = function(){
+      for (var i = 0; i < this.length; i++) {
+        if ( this[i] === 3 ) {
+          this.splice(i,1);
+        }
+      }
+    };
+  
+    var arr = [1,2,3,4];
+    arr.remove3();
     
-
-
-
+    console.log(arr); //[1,2,4]
 
 </script>
 
