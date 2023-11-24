@@ -134,24 +134,32 @@ person.인사.call(person2); */
     
 함수(1,2,3,4,5,6,7,8,9,10,11,12,16,14) */
 
-글자세기('aacbbbfffff가');
+/* 글자세기('aacbbbfffff가');
 
 function 글자세기(글자) {
   var 결과 = {};
   [...글자].forEach(function(a){
     // 만약에 결과에 a가 있으면 +1 해주시고
     // 없으면 a : 1 집어넣으세요
-    if (결과[a] > 0) {
-      결과[a] = 결과[a] +1;
-    } else {
-      결과[a] = 1;
-    }
   });
   console.log(결과);
-}
+} */
+
+  var 이름1 = {name : '김'};
+  
+  function 변경(obj) {
+    obj = {name : 'park'};
+  }
+  변경(이름1);
+
+    var 이름10 = {name : '김'};
+    var 이름11 = 이름10;
+    
 
 
-  </script>
+
+
+</script>
 
 </body>
 </html>
