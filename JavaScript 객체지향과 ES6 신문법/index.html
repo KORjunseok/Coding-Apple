@@ -190,7 +190,7 @@ function 글자세기(글자) {
     var product2 = new 상품데이터('pants', 60000) */
 
     // constructor, prototype
-    function 출석부(이름, 나이){
+    /* function 출석부(이름, 나이){
       this.name = 이름;
       this.age = 나이;
       this.sayHi = function() {
@@ -213,8 +213,39 @@ function 글자세기(글자) {
     var arr = [1,2,3,4];
     arr.remove3();
     
-    console.log(arr); //[1,2,4]
+    console.log(arr); //[1,2,4] */
 
+    // ES5 방식으로 구현하는 상속 기능 
+    /* var 부모 = {name : 'Kim', age: 50 };
+    var 자식 = Object.create(부모) */
+
+    // ES6 방식으로 구현하는 상속 기능 
+    /* class 부모 {
+      constructor(aaaa){
+        this.name = aaaa;
+        // this. sayHi = function() {console.log('hello')}
+      }
+      sayHi(){
+        console.log('hello')
+      }
+    }
+
+    var 자식 = new 부모('siasia') */
+
+    class 부모 {
+      constructor(이름, 나이){
+        this.name = 이름;
+        this.age = 나이;
+      }
+      sayHi(){
+        console.log('안녕');
+      }
+      sayHello(){
+        console.log('안녕하세요');
+      }
+    }
+    
+    var 자식 = new 부모('Park');
 </script>
 
 </body>
