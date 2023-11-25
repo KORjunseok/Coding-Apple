@@ -283,7 +283,7 @@ function 글자세기(글자) {
     사람.setAge = '20';
     사람.nextAge; */
 
-    class 사람 {  
+    /* class 사람 {  
       constructor(){
         this.name = 'Park';
         this.age = 20;
@@ -295,7 +295,67 @@ function 글자세기(글자) {
         this.age = 나이;
       }
     }
-    var 사람1 = new 사람();
+    var 사람1 = new 사람(); */
+
+    // class, extends, getter, setter 연습문제
+    class 강아지분양소{
+      constructor(타입, 색깔){
+        this.type = 타입;
+        this.color = 색깔;
+      }
+
+    }
+
+    var 강아지1 = new 강아지분양소("말티즈", "white")
+    var 강아지2 = new 강아지분양소("진돗개", "brown")
+
+    class 고양이분양소 extends 강아지분양소 {
+      constructor(타입,색깔, 나이){
+        super(타입,색깔)
+        this.age = 나이
+      }
+      
+    }
+
+    var 고양이1 = new 고양이분양소('코숏','white',5)
+    var 고양이2 = new 고양이분양소('러시안블루','brown',2)
+
+    // 게임 만들기 
+    class Unit {
+      constructor(){
+        this.공격력 = 5;
+        this.체력 = 100;
+      };
+      get battlePoint(){
+        return this.공격력 + this.체력 
+      };
+      set heal(숫자){
+        this.체력 += 숫자
+      };
+    } 
+    var 병사1 = new Unit()
+
+    // get, set 이용
+    var data = {
+      odd : [],
+      even : [],
+      setter함수 : function(...숫자들){
+        숫자들.forEach((a)=>{
+          if ( a % 2 == 1 ) {
+            this.odd.push(a)  //홀수일때
+          } else {
+            this.even.push(a)  //짝수일때
+          }
+        });
+      },
+      get getter함수(){
+        return [...this.odd, ...this.even ].sort()
+      }
+      
+    };
+    
+    data.setter함수(1,2,3);
+    console.log(data.getter함수);
 
 </script>
 
