@@ -383,6 +383,28 @@ function 글자세기(글자) {
     size: [ 상의, 하의 ]
   } = 신체정보; */
 
+  /* console.log(1);
+  setTimeout (() => {console.log(2)}, 1000);
+  console.log(3); */
+
+  function 첫째함수(콜백){
+    console.log(1);
+    콜백()
+  }
+
+  function 둘째함수(){
+    console.log(2)
+  }
+  첫째함수(둘째함수);
+
+  첫째함수(function(){
+    둘째함수(function(){
+      셋째함수(function(){
+        console.log("어쩌구..")
+      });
+    });
+  });
+
 </script>
 <script type ="module"> 
   // import 작명, {a as 별명} from './library.js';

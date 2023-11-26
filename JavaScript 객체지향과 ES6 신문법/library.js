@@ -5,4 +5,5 @@ var c = 30;
 export {a,b};
 export default c;
 
-// export {a, b};
+// export {a};
+// export {b};
