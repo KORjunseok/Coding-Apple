@@ -298,7 +298,7 @@ function 글자세기(글자) {
     var 사람1 = new 사람(); */
 
     // class, extends, getter, setter 연습문제
-    class 강아지분양소{
+    /* class 강아지분양소{
       constructor(타입, 색깔){
         this.type = 타입;
         this.color = 색깔;
@@ -351,11 +351,37 @@ function 글자세기(글자) {
       get getter함수(){
         return [...this.odd, ...this.even ].sort()
       }
-      
     };
     
     data.setter함수(1,2,3);
-    console.log(data.getter함수);
+    console.log(data.getter함수); */
+
+   // var arr = [2,3,4];
+   // var [a,b,c=10] = [2,3,4,5,6,7];
+
+   // var obj = {name: 'Oh', age : 30};
+   // var name = obj.name; 
+   //var {name, age} = {name : 'ohoh', age : 29};
+   //var {name : 나이}= {name : 'Kim'};
+
+   var [number, address] = [ 30, 'seoul' ];
+   var {address : a , number = 20 } = { address, number };
+
+   let 신체정보 = {
+    body: {
+      height: 190,
+      weight: 70
+    },
+    size: ["상의 Large", "바지 30인치"],
+  };
+
+  let {
+    body: {
+      height, 
+      weight
+    },
+    size: [ 상의, 하의 ]
+  } = 신체정보;
 
 </script>
 
