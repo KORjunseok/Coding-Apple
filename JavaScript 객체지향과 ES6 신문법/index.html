@@ -387,7 +387,7 @@ function 글자세기(글자) {
   setTimeout (() => {console.log(2)}, 1000);
   console.log(3); */
 
-  function 첫째함수(콜백){
+  /* function 첫째함수(콜백){
     console.log(1);
     콜백()
   }
@@ -403,15 +403,39 @@ function 글자세기(글자) {
         console.log("어쩌구..")
       });
     });
+  }); */
+
+  var 프로미스 = new Promise(function(성공, 실패){
+    setTimeout(function(){
+      성공();
+    }, 5000)
+
+  });
+
+  프로미스.then(function(){
+    console.log('성공했어요')
+  }).catch(function(){
+    console.log('실패했어요')
+  })
+  
+  var 프로미스2 = new Promise(function(성공, 실패){
+    var 어려운연산 = 1 + 1;
+    성공(어려운연산);
+  });
+  
+  프로미스2.then(function(결과){
+    console.log('연산이 성공했습니다' + " "+ 결과)
+  }).catch(function(){
+    console.log('실패했습니다')
   });
 
 </script>
 <script type ="module"> 
   // import 작명, {a as 별명} from './library.js';
   // console.log(작명, 별명)
-  import 디폴트, * as 별명 from './library.js'
+  // import 디폴트, * as 별명 from './library.js'
   // console.log(디폴트, 별명) 
-  console.log(별명.default)
+  // console.log(별명.default)
 </script>
 
 </body>
