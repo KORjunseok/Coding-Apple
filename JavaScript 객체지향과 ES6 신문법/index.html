@@ -364,7 +364,7 @@ function 글자세기(글자) {
    //var {name, age} = {name : 'ohoh', age : 29};
    //var {name : 나이}= {name : 'Kim'};
 
-   var [number, address] = [ 30, 'seoul' ];
+   /* var [number, address] = [ 30, 'seoul' ];
    var {address : a , number = 20 } = { address, number };
 
    let 신체정보 = {
@@ -381,8 +381,15 @@ function 글자세기(글자) {
       weight
     },
     size: [ 상의, 하의 ]
-  } = 신체정보;
+  } = 신체정보; */
 
+</script>
+<script type ="module"> 
+  // import 작명, {a as 별명} from './library.js';
+  // console.log(작명, 별명)
+  import 디폴트, * as 별명 from './library.js'
+  // console.log(디폴트, 별명) 
+  console.log(별명.default)
 </script>
 
 </body>
