@@ -506,6 +506,23 @@ for (var 자료 of 어레이) {
   var 어레이 = [2,3,4];
   어레이[Symbol.iterator] */ 
 
+  /* var person = new Map();
+  person.set(100, 'Kim')
+  person.set('age', 20)
+
+  person.get('age') */
+
+  var 출석부 = ['존', '톰', '엔디', '톰'];
+  var 출석부3 = new Set(출석부)
+
+  var 출석부2 = new Set(['존', '톰', '엔디', '톰']);
+  // 배열로 바꾸기 ! 
+  출석부 = [...출석부2];
+
+  출석부2.add('셀리')
+  출석부2.has('셀리')
+  출석부2.delete('톰')
+
 </script>
 <script type ="module"> 
   // import 작명, {a as 별명} from './library.js';
