@@ -447,7 +447,7 @@ function 글자세기(글자) {
 더하기(); */
 
 // 버튼을 통한 async / await 
-async function 더하기(){
+/* async function 더하기(){
   var 프로미스 = new Promise(function(성공, 실패){
     document.getElementById('button').addEventListener('click', function(){
       성공('성공했어');
@@ -457,7 +457,31 @@ async function 더하기(){
   console.log(결과);
 }
 
-더하기 ();
+더하기 (); */
+
+// for in 반복문 
+
+  class 부모 {
+
+  }
+  부모.prototype.name = "Park"
+
+  var 오브젝트 = new 부모();
+  for (var key in 오브젝트){
+    if (오브젝트.hasOwnProperty(key)){
+      console.log(오브젝트[key])
+    }
+  }
+
+// for of 반복문
+var 어레이 = [2,3,4,5];
+
+for (var 자료 of 어레이) {
+  console.log(자료)
+}
+
+어레이[Symbol.iterator]();
+
 </script>
 <script type ="module"> 
   // import 작명, {a as 별명} from './library.js';
