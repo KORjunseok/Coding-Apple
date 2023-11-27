@@ -8,7 +8,7 @@
 <body>
 
   <div></div>
-  <button id="버튼">버튼</button>
+  <button id="button">버튼</button>
   
 
 
@@ -405,7 +405,7 @@ function 글자세기(글자) {
     });
   }); */
 
-  var 프로미스 = new Promise(function(성공, 실패){
+  /* var 프로미스 = new Promise(function(성공, 실패){
     setTimeout(function(){
       성공();
     }, 5000)
@@ -427,8 +427,37 @@ function 글자세기(글자) {
     console.log('연산이 성공했습니다' + " "+ 결과)
   }).catch(function(){
     console.log('실패했습니다')
-  });
+  }); */
 
+  // async / await 설명
+  /* async function 더하기(){
+    var 프로미스 = new Promise(function(성공, 실패){
+      var 힘든연산 = 1+1;
+      실패(100);
+    })
+  
+  try {
+  var 결과 = await 프로미스;
+  console.log(결과);
+} catch {
+  console.log('프로미스 연산이 안되었군요')
+}
+}
+
+더하기(); */
+
+// 버튼을 통한 async / await 
+async function 더하기(){
+  var 프로미스 = new Promise(function(성공, 실패){
+    document.getElementById('button').addEventListener('click', function(){
+      성공('성공했어');
+    })
+  });
+  var 결과 = await 프로미스;
+  console.log(결과);
+}
+
+더하기 ();
 </script>
 <script type ="module"> 
   // import 작명, {a as 별명} from './library.js';
