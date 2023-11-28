@@ -84,35 +84,53 @@ let 이름:any;
 
 // console.log( 클리닝함수([123,'3']) )
 
-type Girlfriend = {
-  readonly name : string
+// type Girlfriend = {
+//   readonly name : string
+// }
+
+// const 여친 :Girlfriend = {
+//   name : "카리나"
+// }
+
+// 여친.name = '윈터';
+// console.log(여친.name)
+
+// type PositionX = {x : number};
+// type PositionY = {y : number};
+
+// type NewType = PositionX & PositionY
+// let position :NewType = { x : 100, y : 200}
+
+// let 테스트 :{a? : string} = {
+//   a : "냠냠"
+// }
+
+// // 숙제 
+// type User = { name : string, email? : string, phone : string } 
+// type Adult = { adult : boolean }
+
+// type NewUser = User & Adult;
+
+// let 회원가입정보 :NewUser = {
+//   name : 'kim',
+//   adult : false,
+//   phone : "1234"
+// }
+
+let 접니다 : "존잘"|"매력쟁이";
+
+접니다 = "존잘"
+
+function 가위바위보게임 (x:"가위"|"바위"|"보") :("가위"|"바위"|"보")[]{
+  return ['가위']
 }
+가위바위보게임("가위")
 
-const 여친 :Girlfriend = {
-  name : "카리나"
+var 자료 = {
+name : "준석"
+} as const;
+
+function 내함수(a : "준석") {
+
 }
-
-여친.name = '윈터';
-console.log(여친.name)
-
-type PositionX = {x : number};
-type PositionY = {y : number};
-
-type NewType = PositionX & PositionY
-let position :NewType = { x : 100, y : 200}
-
-let 테스트 :{a? : string} = {
-  a : "냠냠"
-}
-
-// 숙제 
-type User = { name : string, email? : string, phone : string } 
-type Adult = { adult : boolean }
-
-type NewUser = User & Adult;
-
-let 회원가입정보 :NewUser = {
-  name : 'kim',
-  adult : false,
-  phone : "1234"
-}
+내함수(자료.name)
