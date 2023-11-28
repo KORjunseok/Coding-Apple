@@ -67,19 +67,52 @@ let 이름:any;
 // }
 // console.log(결혼가능하냐(100,true,'상'))
 
-function 클리닝함수(a :(number|string)[]){
+// function 클리닝함수(a :(number|string)[]){
 
-  let 클리닝완료된거 :number[] = [];
+//   let 클리닝완료된거 :number[] = [];
 
-  a.forEach((b)=>{
-    if (typeof b === 'string') {
-      클리닝완료된거.push(parseFloat(b))
-    } else {
-      클리닝완료된거.push(b)
-    }
-  })
+//   a.forEach((b)=>{
+//     if (typeof b === 'string') {
+//       클리닝완료된거.push(parseFloat(b))
+//     } else {
+//       클리닝완료된거.push(b)
+//     }
+//   })
 
-  return 클리닝완료된거
+//   return 클리닝완료된거
+// }
+
+// console.log( 클리닝함수([123,'3']) )
+
+type Girlfriend = {
+  readonly name : string
 }
 
-console.log( 클리닝함수([123,'3']) )
+const 여친 :Girlfriend = {
+  name : "카리나"
+}
+
+여친.name = '윈터';
+console.log(여친.name)
+
+type PositionX = {x : number};
+type PositionY = {y : number};
+
+type NewType = PositionX & PositionY
+let position :NewType = { x : 100, y : 200}
+
+let 테스트 :{a? : string} = {
+  a : "냠냠"
+}
+
+// 숙제 
+type User = { name : string, email? : string, phone : string } 
+type Adult = { adult : boolean }
+
+type NewUser = User & Adult;
+
+let 회원가입정보 :NewUser = {
+  name : 'kim',
+  adult : false,
+  phone : "1234"
+}
