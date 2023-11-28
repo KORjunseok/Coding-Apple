@@ -42,27 +42,44 @@ let 이름:any;
 
 // console.log(학교.score)
 
-function 함수(x? :number) :void {
-   console.log(x + 3 )
+// function 함수(x? :number) :void {
+//    console.log(x + 3 )
+// }
+// function sayHi(x? :string ){
+//   if (x) {
+//     console.log('안녕하세요 ' + x)
+//   } else {
+//     console.log('왜입력안함')
+//   }
+// }
+// function 결혼가능하냐(money :number, house :boolean, charm :string) :string|void{
+//   let score :number = 0;
+//   score += money;
+//   if (house === true){
+//     score += 500
+//   }
+//   if (charm === '상'){
+//     score += 100
+//   }
+//   if (score >= 600){
+//     return '결혼가능'
+//   } 
+// }
+// console.log(결혼가능하냐(100,true,'상'))
+
+function 클리닝함수(a :(number|string)[]){
+
+  let 클리닝완료된거 :number[] = [];
+
+  a.forEach((b)=>{
+    if (typeof b === 'string') {
+      클리닝완료된거.push(parseFloat(b))
+    } else {
+      클리닝완료된거.push(b)
+    }
+  })
+
+  return 클리닝완료된거
 }
-function sayHi(x? :string ){
-  if (x) {
-    console.log('안녕하세요 ' + x)
-  } else {
-    console.log('왜입력안함')
-  }
-}
-function 결혼가능하냐(money :number, house :boolean, charm :string) :string|void{
-  let score :number = 0;
-  score += money;
-  if (house === true){
-    score += 500
-  }
-  if (charm === '상'){
-    score += 100
-  }
-  if (score >= 600){
-    return '결혼가능'
-  } 
-}
-console.log(결혼가능하냐(100,true,'상'))
+
+console.log( 클리닝함수([123,'3']) )
