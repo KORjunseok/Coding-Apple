@@ -1,24 +1,24 @@
-let 오준석 : {} = {
-  name : "오준석",
-  age : 29,
-  출생지역 : "인천"
-}
+// let 오준석 : {} = {
+//   name : "오준석",
+//   age : 29,
+//   출생지역 : "인천"
+// }
 
-let 좋아요 :{제목: string, 가수:string} = {
-  제목 : "예뻤어",
-  가수 : "데이식스"
-}
+// let 좋아요 :{제목: string, 가수:string} = {
+//   제목 : "예뻤어",
+//   가수 : "데이식스"
+// }
 
-let project:{member:string[],days:number, started:boolean } = {
-  member : ['kim', 'park'],
-  days : 30,
-  started : true,
-}
+// let project:{member:string[],days:number, started:boolean } = {
+//   member : ['kim', 'park'],
+//   days : 30,
+//   started : true,
+// }
 
-let 회원들 :(number|string)[] = [1,"2",3]
-let 오부젝트 :{a : string | number} = {a : '123'}
+// let 회원들 :(number|string)[] = [1,"2",3]
+// let 오부젝트 :{a : string | number} = {a : '123'}
 
-let 이름:any;
+// let 이름:any;
 
 // 숙제1 
 // let user:string = 'kim';
@@ -135,8 +135,29 @@ let 이름:any;
 // }
 // 내함수(자료.name)
 
-type 함수타입 = (a:string) => number;
-function 함수() {
-  
+// type 함수타입 = (a:string) => number;
+// function 함수() {  
+// }
+
+let 제목 = document.querySelector('#title');
+if (제목 instanceof Element) {
+  제목.innerHTML ="반가워요"
 }
 
+// if (제목 != null) {
+//   제목.innerHTML ="반가워요"
+// }
+
+// if(제목?.innerHTML  != undefined){
+//   제목.innerHTML = "반가워요"
+// }
+
+let 링크 = document.querySelector('.link');
+if (링크 instanceof HTMLAnchorElement) {
+  링크.href = 'https://kakao.com'
+}
+
+let 버튼 = document.querySelector('#button');
+버튼?.addEventListener('click', function(){
+  console.log('안녕')
+})
