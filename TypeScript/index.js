@@ -126,3 +126,14 @@ var 버튼 = document.querySelector('#button');
 버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener('click', function () {
     console.log('안녕');
 });
+var Person = /** @class */ (function () {
+    function Person(a) {
+        this.name = a;
+    }
+    Person.prototype.함수 = function (a) {
+        console.log('안녕' + a);
+    };
+    return Person;
+}());
+var 사람1 = new Person('kim');
+var 사람2 = new Person('park');

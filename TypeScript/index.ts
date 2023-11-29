@@ -161,3 +161,17 @@ let 버튼 = document.querySelector('#button');
 버튼?.addEventListener('click', function(){
   console.log('안녕')
 })
+
+class Person {
+  name : string;
+  constructor(a : string){
+    this.name = a
+  }
+  함수(a:string) {
+    console.log('안녕'+a)
+  }
+}
+
+let 사람1 = new Person('kim');
+let 사람2 = new Person('park');
+
