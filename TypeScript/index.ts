@@ -196,13 +196,60 @@
 // let 학생 :Student = {name : 'kim'}
 // let 선생 : Teacher = {name : 'kim', age : 20}
 
-function 함수(...a:number[]) {
-  console.log(a)
+// function 함수(...a:number[]) {
+//   console.log(a)
+// }
+
+// 함수(1,2,3,4,5,6)
+
+// let {student, age} = {student : true, age : 20}
+
+// console.log(student) 
+
+// type Fish = {swim : string}
+// type Bird = {fly : string}
+
+// function 함수(animal : Fish | Bird){
+//   if ('swim' in animal) {
+//     animal.swim
+//   }
+// }
+
+type Car = {
+  wheel : '4개',
+  color : string
 }
 
-함수(1,2,3,4,5,6)
+type Bike = {
+  wheel : '2개',
+  color : string
+}
 
-let {student, age} = {student : true, age : 20}
+function 함수(x: Car | Bike){
+  if (x.wheel === '4개'){
+    console.log('x는 Car타입이에요')
+  } else {
+    console.log('x는 Bike타입이에요')
+  }
+}
 
-console.log(student) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
