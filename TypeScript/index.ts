@@ -152,26 +152,49 @@ if (제목 instanceof Element) {
 //   제목.innerHTML = "반가워요"
 // }
 
-let 링크 = document.querySelector('.link');
-if (링크 instanceof HTMLAnchorElement) {
-  링크.href = 'https://kakao.com'
+// let 링크 = document.querySelector('.link');
+// if (링크 instanceof HTMLAnchorElement) {
+//   링크.href = 'https://kakao.com'
+// }
+
+// let 버튼 = document.querySelector('#button');
+// 버튼?.addEventListener('click', function(){
+//   console.log('안녕')
+// })
+
+// class Person {
+//   name : string;
+//   constructor(a : string){
+//     this.name = a
+//   }
+//   함수(a:string) {
+//     console.log('안녕'+a)
+//   }
+// }
+
+// let 사람1 = new Person('kim');
+// let 사람2 = new Person('park');
+
+// interface Square {color : string, width : number};
+// let 네모:Square = {color : 'red', width: 100}
+
+type Animal = {name: string}
+type Cat = { age : number } & Animal
+
+interface Student {
+  name : string
 }
 
-let 버튼 = document.querySelector('#button');
-버튼?.addEventListener('click', function(){
-  console.log('안녕')
-})
-
-class Person {
-  name : string;
-  constructor(a : string){
-    this.name = a
-  }
-  함수(a:string) {
-    console.log('안녕'+a)
-  }
+// 인터페이스는 중복이 가능 
+interface Student {
+  score ?: number 
+}
+interface Teacher extends Student {
+  age : number
 }
 
-let 사람1 = new Person('kim');
-let 사람2 = new Person('park');
+let 학생 :Student = {name : 'kim'}
+let 선생 : Teacher = {name : 'kim', age : 20}
+
+
 
