@@ -1,3 +1,4 @@
+import { Name } from './a';
 // let 오준석 : {} = {
 //   name : "오준석",
 //   age : 29,
@@ -291,18 +292,30 @@
 // let 자식 = new User();
 // console.log(User)
 
-class User {
-  static skill = 'js';
-  intro = User.skill + '전문가입니다';
-}
+// class User {
+//   static skill = 'js';
+//   intro = User.skill + '전문가입니다';
+// }
 
-let 철수 = new User();
-console.log(철수)
+// let 철수 = new User();
+// console.log(철수)
 
-User.skill = 'ts';
+// User.skill = 'ts';
 
-let 철수2 = new User();
-console.log(철수2)
+// let 철수2 = new User();
+// console.log(철수2)
+
+import {네임스페이스, 나이} from './a'
+
+let 변수:네임스페이스.Name = 'park';
+
+console.log(변수)
+
+
+
+
+
+
 
 
 
