@@ -262,15 +262,49 @@
 // 유저1.이름변경함수()
 // console.log(유저1)
 
-class Person {
-    constructor(public name){
+// class Person {
+//     constructor(public name){
 
-    }
+//     }
+// }
+
+// let 자식 = new Person('kim')
+
+// console.log(자식)
+
+// class User {
+//   protected x =10
+// }
+
+// class NewUser extends User {
+//   dothis() {
+//     this.x = 20;
+
+//   }
+// }
+
+// class User {
+//   static x = 10;
+//   y = 20;
+// }
+
+// let 자식 = new User();
+// console.log(User)
+
+class User {
+  static skill = 'js';
+  intro = User.skill + '전문가입니다';
 }
 
-let 자식 = new Person('kim')
+let 철수 = new User();
+console.log(철수)
 
-console.log(자식)
+User.skill = 'ts';
+
+let 철수2 = new User();
+console.log(철수2)
+
+
 
 
 
