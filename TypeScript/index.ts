@@ -234,17 +234,51 @@
 // }
 
 // naver 타입을 알아보자 
-function 함수(parameter :string){
-  if (typeof parameter == 'string'){
-    console.log(parameter)
-  } else {
-    console.log(parameter)
-  }
+// function 함수(parameter :string){
+//   if (typeof parameter == 'string'){
+//     console.log(parameter)
+//   } else {
+//     console.log(parameter)
+//   }
+// }
+
+// let 함수2 = function(){
+//   throw new Error()
+// }
+
+// class User {
+//   name : string
+//   private familyname : string = 'kim';
+//   constructor(a){
+//     this.name = a + this.familyname
+//   }
+//   이름변경함수(){
+//     this.familyname= 'park'
+//   }
+
+// }
+
+// let 유저1 = new User('민수')
+// 유저1.이름변경함수()
+// console.log(유저1)
+
+class Person {
+    constructor(public name){
+
+    }
 }
 
-let 함수2 = function(){
-  throw new Error()
-}
+let 자식 = new Person('kim')
+
+console.log(자식)
+
+
+
+
+
+
+
+
 
 
 
