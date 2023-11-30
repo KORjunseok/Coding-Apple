@@ -139,10 +139,10 @@
 // function 함수() {  
 // }
 
-let 제목 = document.querySelector('#title');
-if (제목 instanceof Element) {
-  제목.innerHTML ="반가워요"
-}
+// let 제목 = document.querySelector('#title');
+// if (제목 instanceof Element) {
+//   제목.innerHTML ="반가워요"
+// }
 
 // if (제목 != null) {
 //   제목.innerHTML ="반가워요"
@@ -178,23 +178,31 @@ if (제목 instanceof Element) {
 // interface Square {color : string, width : number};
 // let 네모:Square = {color : 'red', width: 100}
 
-type Animal = {name: string}
-type Cat = { age : number } & Animal
+// type Animal = {name: string}
+// type Cat = { age : number } & Animal
 
-interface Student {
-  name : string
+// interface Student {
+//   name : string
+// }
+
+// // 인터페이스는 중복이 가능 
+// interface Student {
+//   score ?: number 
+// }
+// interface Teacher extends Student {
+//   age : number
+// }
+
+// let 학생 :Student = {name : 'kim'}
+// let 선생 : Teacher = {name : 'kim', age : 20}
+
+function 함수(...a:number[]) {
+  console.log(a)
 }
 
-// 인터페이스는 중복이 가능 
-interface Student {
-  score ?: number 
-}
-interface Teacher extends Student {
-  age : number
-}
+함수(1,2,3,4,5,6)
 
-let 학생 :Student = {name : 'kim'}
-let 선생 : Teacher = {name : 'kim', age : 20}
+let {student, age} = {student : true, age : 20}
 
-
+console.log(student) 
 
