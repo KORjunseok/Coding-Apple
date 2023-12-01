@@ -305,17 +305,34 @@ import { Name } from './a';
 // let 철수2 = new User();
 // console.log(철수2)
 
-import {네임스페이스, 나이} from './a'
+// import {네임스페이스, 나이} from './a'
 
-let 변수:네임스페이스.Name = 'park';
+// let 변수:네임스페이스.Name = 'park';
 
-console.log(변수)
+// console.log(변수)
 
+// function 함수<MyType>(x:unknown[]){
+//   return x[0]
+// }
 
+// let a = 함수<number>([4,2])
+// console.log(a)
 
+// function 함수2<MyType extends number>(x: MyType){
+//   return x -1 
+// }
 
+// let b = 함수2<number>(100);
 
+interface LengthCheck {
+  length : number
+}
 
+function 함수<MyType extends LengthCheck>(x :MyType){
+  return x.length
+}
+
+let a = 함수<string[]>(['100']);
 
 
 
