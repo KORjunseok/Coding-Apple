@@ -1,4 +1,4 @@
-import { Name } from './a';
+// import { Name } from './a';
 // let 오준석 : {} = {
 //   name : "오준석",
 //   age : 29,
@@ -334,28 +334,29 @@ import { Name } from './a';
 
 // let a = 함수<string[]>(['100']);
 
-let 멍멍 : [string, boolean?] = ['dog', true]
+// let 멍멍 : [string, boolean?] = ['dog', true]
 
-function 함수(...rest :[string, boolean, ...(number|string)[] ]){
-}
+// function 함수(...rest :[string, boolean, ...(number|string)[] ]){
+// }
 
-함수('a', true, 6, 3, '1', 4)
+// 함수('a', true, 6, 3, '1', 4)
 
-function 함수2(...rest :(string|number)[]){
-  let result :[string[], number[]] = [[],[]];
-  rest.forEach((a)=>{
-    if (typeof a === 'string') {
-      result[0].push(a)
-    } else {
-      result[1].push(a)
-    }
-  })
+// function 함수2(...rest :(string|number)[]){
+//   let result :[string[], number[]] = [[],[]];
+//   rest.forEach((a)=>{
+//     if (typeof a === 'string') {
+//       result[0].push(a)
+//     } else {
+//       result[1].push(a)
+//     }
+//   })
 
-  return result;  
-} 
+//   return result;  
+// } 
+ 
 
-
-
+let b: Dog = '이이이';
+console.log(a+1)
 
 
 
