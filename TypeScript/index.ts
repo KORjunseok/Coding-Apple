@@ -355,9 +355,15 @@
 // } 
  
 
-let b: Dog = '이이이';
-console.log(a+1)
+// let b: Dog = '이이이';
+// console.log(a+1);
 
+// import {Age} from './test.d'
+
+// let age:Age;
+
+let 이름: string = '김'
+type Age = number;
 
 
 

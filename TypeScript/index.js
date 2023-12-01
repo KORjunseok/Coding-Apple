@@ -1,3 +1,4 @@
+// import { Name } from './a';
 // let 오준석 : {} = {
 //   name : "오준석",
 //   age : 29,
@@ -108,32 +109,168 @@
 // type 함수타입 = (a:string) => number;
 // function 함수() {  
 // }
-var 제목 = document.querySelector('#title');
-if (제목 instanceof Element) {
-    제목.innerHTML = "반가워요";
-}
+// let 제목 = document.querySelector('#title');
+// if (제목 instanceof Element) {
+//   제목.innerHTML ="반가워요"
+// }
 // if (제목 != null) {
 //   제목.innerHTML ="반가워요"
 // }
 // if(제목?.innerHTML  != undefined){
 //   제목.innerHTML = "반가워요"
 // }
-var 링크 = document.querySelector('.link');
-if (링크 instanceof HTMLAnchorElement) {
-    링크.href = 'https://kakao.com';
-}
-var 버튼 = document.querySelector('#button');
-버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener('click', function () {
-    console.log('안녕');
-});
-var Person = /** @class */ (function () {
-    function Person(a) {
-        this.name = a;
-    }
-    Person.prototype.함수 = function (a) {
-        console.log('안녕' + a);
-    };
-    return Person;
-}());
-var 사람1 = new Person('kim');
-var 사람2 = new Person('park');
+// let 링크 = document.querySelector('.link');
+// if (링크 instanceof HTMLAnchorElement) {
+//   링크.href = 'https://kakao.com'
+// }
+// let 버튼 = document.querySelector('#button');
+// 버튼?.addEventListener('click', function(){
+//   console.log('안녕')
+// })
+// class Person {
+//   name : string;
+//   constructor(a : string){
+//     this.name = a
+//   }
+//   함수(a:string) {
+//     console.log('안녕'+a)
+//   }
+// }
+// let 사람1 = new Person('kim');
+// let 사람2 = new Person('park');
+// interface Square {color : string, width : number};
+// let 네모:Square = {color : 'red', width: 100}
+// type Animal = {name: string}
+// type Cat = { age : number } & Animal
+// interface Student {
+//   name : string
+// }
+// // 인터페이스는 중복이 가능 
+// interface Student {
+//   score ?: number 
+// }
+// interface Teacher extends Student {
+//   age : number
+// }
+// let 학생 :Student = {name : 'kim'}
+// let 선생 : Teacher = {name : 'kim', age : 20}
+// function 함수(...a:number[]) {
+//   console.log(a)
+// }
+// 함수(1,2,3,4,5,6)
+// let {student, age} = {student : true, age : 20}
+// console.log(student) 
+// type Fish = {swim : string}
+// type Bird = {fly : string}
+// function 함수(animal : Fish | Bird){
+//   if ('swim' in animal) {
+//     animal.swim
+//   }
+// }
+// type Car = {
+//   wheel : '4개',
+//   color : string
+// }
+// type Bike = {
+//   wheel : '2개',
+//   color : string
+// }
+// function 함수(x: Car | Bike){
+//   if (x.wheel === '4개'){
+//     console.log('x는 Car타입이에요')
+//   } else {
+//     console.log('x는 Bike타입이에요')
+//   }
+// }
+// naver 타입을 알아보자 
+// function 함수(parameter :string){
+//   if (typeof parameter == 'string'){
+//     console.log(parameter)
+//   } else {
+//     console.log(parameter)
+//   }
+// }
+// let 함수2 = function(){
+//   throw new Error()
+// }
+// class User {
+//   name : string
+//   private familyname : string = 'kim';
+//   constructor(a){
+//     this.name = a + this.familyname
+//   }
+//   이름변경함수(){
+//     this.familyname= 'park'
+//   }
+// }
+// let 유저1 = new User('민수')
+// 유저1.이름변경함수()
+// console.log(유저1)
+// class Person {
+//     constructor(public name){
+//     }
+// }
+// let 자식 = new Person('kim')
+// console.log(자식)
+// class User {
+//   protected x =10
+// }
+// class NewUser extends User {
+//   dothis() {
+//     this.x = 20;
+//   }
+// }
+// class User {
+//   static x = 10;
+//   y = 20;
+// }
+// let 자식 = new User();
+// console.log(User)
+// class User {
+//   static skill = 'js';
+//   intro = User.skill + '전문가입니다';
+// }
+// let 철수 = new User();
+// console.log(철수)
+// User.skill = 'ts';
+// let 철수2 = new User();
+// console.log(철수2)
+// import {네임스페이스, 나이} from './a'
+// let 변수:네임스페이스.Name = 'park';
+// console.log(변수)
+// function 함수<MyType>(x:unknown[]){
+//   return x[0]
+// }
+// let a = 함수<number>([4,2])
+// console.log(a)
+// function 함수2<MyType extends number>(x: MyType){
+//   return x -1 
+// }
+// let b = 함수2<number>(100);
+// interface LengthCheck {
+//   length : number
+// }
+// function 함수<MyType extends LengthCheck>(x :MyType){
+//   return x.length
+// }
+// let a = 함수<string[]>(['100']);
+// let 멍멍 : [string, boolean?] = ['dog', true]
+// function 함수(...rest :[string, boolean, ...(number|string)[] ]){
+// }
+// 함수('a', true, 6, 3, '1', 4)
+// function 함수2(...rest :(string|number)[]){
+//   let result :[string[], number[]] = [[],[]];
+//   rest.forEach((a)=>{
+//     if (typeof a === 'string') {
+//       result[0].push(a)
+//     } else {
+//       result[1].push(a)
+//     }
+//   })
+//   return result;  
+// } 
+// let b: Dog = '이이이';
+// console.log(a+1);
+// import {Age} from './test.d'
+// let age:Age;
+var 이름 = '김';
