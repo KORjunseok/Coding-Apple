@@ -418,16 +418,38 @@ import { Person } from './test.d';
 //   }
 // }
 
-let obj = {name : 'kim', age: 20}
-Object.keys(obj)
+// let obj = {name : 'kim', age: 20}
+// Object.keys(obj)
 
-interface Person {
-  age : number, 
-  name : string
+// interface Person {
+//   age : number, 
+//   name : string
+// }
+
+// type PersonKeys = keyof Person;
+// let a : PersonKeys = 'name'
+
+type Bus = {
+  color : string,
+  model : boolean,
+  price : number
 }
 
-type PersonKeys = keyof Person;
-let a : PersonKeys = 'name'
+type TypeChanger <MyType> = {
+  [key in keyof MyType]: string|number;
+};
+
+type NewBus = TypeChanger<Bus>
+
+type Age<T> = T extends string ? string : unknown 
+
+let a : Age<string>
+
+type FirstItem<T> = T extends [] ? [] : any
+
+
+
+
 
 
 
