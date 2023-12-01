@@ -24,3 +24,10 @@ app.get('/news', (req, res) => {
   db.collection('post').insertOne({title : '어쩌구'})
   // res.send('오늘 눈올까?')
 })
+
+app.get('/list', async (req, res) => {
+  let result = await db.collection('post').find().toArray();
+  console.log(result[0].title)
+  res.send(result[0].title)
+
+})
