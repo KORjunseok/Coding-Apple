@@ -3,6 +3,7 @@
     "target": "es5",
     "module": "CommonJS",
     "strictNullChecks": true,
-    "declaration": true
+    // d.ts 파일 자동생성 true, false 
+    "declaration": false
   }
 }

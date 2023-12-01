@@ -362,8 +362,61 @@
 
 // let age:Age;
 
-let 이름: string = '김'
-type Age = number;
+// let 이름: string = '김'
+// type Age = number;
+
+interface StringOnly {
+  age : '20',
+ [key: string] : string,
+}
+
+let  user:StringOnly = {
+  name : 'kim',
+  age : '20',
+  location : 'seoul'
+}
+
+interface MyType {
+  'font-size': MyType | number
+}
+
+let css :MyType = {
+  'font-size' : {
+    'font-size': {
+      'font-size': 14
+    }
+  }
+}
+
+type Car = {
+  [key :string] : number | string
+}
+
+let obj :Car = {
+  model : 'k5',
+  brand : 'kia',
+  price : 6000,
+  year : 2030,
+  date : '6월',
+  percent : '5%',
+  dealer : '김차장',
+}
+
+interface Obj2 {
+  [key: string] : number | {},
+  'font-size' : number
+}
+
+let obj2 : Obj2 = {
+  'font-size' : 10,
+  'secondary' : {
+    'font-size' : 12,
+    'third' : {
+      'font-size' : 14
+    }
+  }
+}
+
 
 
 

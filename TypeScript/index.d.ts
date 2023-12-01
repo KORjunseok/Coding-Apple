@@ -1,2 +1,2 @@
-declare let 이름: string;
-type Age = number;
+// declare let 이름: string;
+// type Age = number;
