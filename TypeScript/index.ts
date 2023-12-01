@@ -324,18 +324,35 @@ import { Name } from './a';
 
 // let b = 함수2<number>(100);
 
-interface LengthCheck {
-  length : number
+// interface LengthCheck {
+//   length : number
+// }
+
+// function 함수<MyType extends LengthCheck>(x :MyType){
+//   return x.length
+// }
+
+// let a = 함수<string[]>(['100']);
+
+let 멍멍 : [string, boolean?] = ['dog', true]
+
+function 함수(...rest :[string, boolean, ...(number|string)[] ]){
 }
 
-function 함수<MyType extends LengthCheck>(x :MyType){
-  return x.length
-}
+함수('a', true, 6, 3, '1', 4)
 
-let a = 함수<string[]>(['100']);
+function 함수2(...rest :(string|number)[]){
+  let result :[string[], number[]] = [[],[]];
+  rest.forEach((a)=>{
+    if (typeof a === 'string') {
+      result[0].push(a)
+    } else {
+      result[1].push(a)
+    }
+  })
 
-
-
+  return result;  
+} 
 
 
 
