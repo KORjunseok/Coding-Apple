@@ -6,5 +6,17 @@ app.listen(8080, ()=> {
 })
 
 app.get('/', (요청, 응답)=> {
-  응답.send('반갑다')
+  응답.sendFile(__dirname + '/index.html')
+})
+
+app.get('/news', (req, res) => {
+  res.send('뉴스 볼래')
+})
+
+app.get('/shop', (req, res) => {
+  res.send('쇼핑페이지임')
+})
+
+app.get('/about', (요청, 응답)=> {
+  응답.sendFile(__dirname + '/index2.html')
 })
