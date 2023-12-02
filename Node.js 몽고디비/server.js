@@ -5,7 +5,7 @@ app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-const { MongoClient } = require('mongodb')
+const { MongoClient, ObjectId } = require('mongodb')
 
 let db
 const url = 'mongodb+srv://sparta:test@cluster0.p7hon5t.mongodb.net/?retryWrites=true&w=majority'
@@ -61,8 +61,9 @@ app.post('/add', async (req, res) => {
     }
 })
 
+app.get('/detail/:aaaa',  (req, res)=> {
+  // let result = await db.collection('post').findOne({ _id: new ObjectId('6569ba2d5c37bf5d0c3dcff1')})
 
-
-
-
-
+  console.log(req.params)
+   res.render('detail.ejs')
+})
