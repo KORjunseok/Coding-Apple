@@ -25,7 +25,7 @@ app.get('/', (요청, 응답)=> {
 
 app.get('/news', (req, res) => {
   db.collection('post').insertOne({title : '어쩌구'})
-  // res.send('오늘 눈올까?')
+
 })
 
 app.get('/list', async (req, res) => {
@@ -46,8 +46,6 @@ app.get('/write', (req, res) => {
 
 app.post('/add', async (req, res) => {
   console.log(req.body)
-
- 
   try {
     if(req.body.title == ''){
       res.send('제목 입력해 주세요')
@@ -61,9 +59,19 @@ app.post('/add', async (req, res) => {
     }
 })
 
-app.get('/detail/:aaaa',  (req, res)=> {
-  // let result = await db.collection('post').findOne({ _id: new ObjectId('6569ba2d5c37bf5d0c3dcff1')})
+app.get('/detail/:id',  async (req, res)=> {
+  try {
+    console.log("id 확인: ", req.params);
+    let result = await db.collection('post').findOne({_id: new ObjectId(req.params.id)})
+    // console.log("붐업: ",result)
+    if (result == null) {
+    res.status(400).send("이상한 URL 입력함")
 
-  console.log(req.params)
-   res.render('detail.ejs')
+    }
+    // console.log("id확인 : ",req.params.id)
+    res.render('detail.ejs', {result : result})
+  } catch(e) {
+    console.log("오류가 왜 나와 : ",e)
+    res.status(400).send("이상한 URL 입력함")
+  }
 })
