@@ -44,7 +44,25 @@ app.get('/write', (req, res) => {
   res.render('write.ejs')
 })
 
-app.post('/add', (req, res) => {
+app.post('/add', async (req, res) => {
   console.log(req.body)
-  db.collection('post').insertOne(req.body)
+
+ 
+  try {
+    if(req.body.title == ''){
+      res.send('제목 입력해 주세요')
+    } else {
+      await db.collection('post').insertOne({title : req.body.title, content :  req.body.content})
+    res.redirect('/list')
+    }
+  } catch(e) {
+    console.log(e)
+    res.status(500).send('서버 에러 발생 ')
+    }
 })
+
+
+
+
+
+
