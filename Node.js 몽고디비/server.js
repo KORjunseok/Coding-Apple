@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express()
+const { MongoClient, ObjectId } = require('mongodb')
+const methodOverride = require('method-override')
+
+app.use(methodOverride('_method')) 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-const { MongoClient, ObjectId } = require('mongodb')
 
 let db
 const url = 'mongodb+srv://sparta:test@cluster0.p7hon5t.mongodb.net/?retryWrites=true&w=majority'
@@ -82,11 +85,14 @@ app.get('/edit/:id',  async (req, res)=> {
   res.render('edit.ejs', {result:result})
 })
 
-app.post('/edit',  async (req, res)=> {
-  db.collection('post').updateOne( { _id : new ObjectId(req.body.id)  }, {$set: { title : req.body.title, content: req.body.content }})
+app.put('/edit',  async (req, res)=> {
+  db.collection('post').updateOne( { _id : 1  }, {$inc: { like:1 }})
 
-  console.log(req.body)
-  res.redirect('/list')
+
+  // db.collection('post').updateOne( { _id : new ObjectId(req.body.id)  }, {$set: { title : req.body.title, content: req.body.content }})
+
+  // console.log(req.body)
+  // res.redirect('/list')
 })
 
 
