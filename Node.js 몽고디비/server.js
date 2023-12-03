@@ -82,4 +82,11 @@ app.get('/edit/:id',  async (req, res)=> {
   res.render('edit.ejs', {result:result})
 })
 
-// db.collection('post').updateOne( { a : 1 }, {$set: { a : 2 }})
+app.post('/edit',  async (req, res)=> {
+  db.collection('post').updateOne( { _id : new ObjectId(req.body.id)  }, {$set: { title : req.body.title, content: req.body.content }})
+
+  console.log(req.body)
+  res.redirect('/list')
+})
+
+
