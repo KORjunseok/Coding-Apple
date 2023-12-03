@@ -75,3 +75,11 @@ app.get('/detail/:id',  async (req, res)=> {
     res.status(400).send("이상한 URL 입력함")
   }
 })
+
+app.get('/edit/:id',  async (req, res)=> {
+  let result = await db.collection('post').findOne({_id: new ObjectId(req.params.id)})
+  console.log(result)
+  res.render('edit.ejs', {result:result})
+})
+
+// db.collection('post').updateOne( { a : 1 }, {$set: { a : 2 }})
