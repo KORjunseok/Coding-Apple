@@ -86,13 +86,16 @@ app.get('/edit/:id',  async (req, res)=> {
 })
 
 app.put('/edit',  async (req, res)=> {
-  db.collection('post').updateOne( { _id : 1  }, {$inc: { like:1 }})
+  // db.collection('post').updateOne( { _id : 1  }, {$inc: { like:1 }})
+  db.collection('post').updateOne( { _id : new ObjectId(req.body.id)  }, {$set: { title : req.body.title, content: req.body.content }})
 
+  console.log(req.body)
+  res.redirect('/list')
+})
 
-  // db.collection('post').updateOne( { _id : new ObjectId(req.body.id)  }, {$set: { title : req.body.title, content: req.body.content }})
-
-  // console.log(req.body)
-  // res.redirect('/list')
+app.post('/abc',  async (req, res)=> {
+  console.log('안녕')
+  console.log(req.body)
 })
 
 

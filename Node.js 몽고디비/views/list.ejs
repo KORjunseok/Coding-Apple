@@ -20,6 +20,7 @@
         <h4>
           <a href="/detail/<%= 글목록[i]._id %>"> <%= 글목록[i].title%></a>
           <a href="/edit/<%= 글목록[i]._id %>">✏️</a>
+          <span class="delete">🗑️</span>
 
         </h4>
         <p>글내용임</p>
@@ -28,6 +29,16 @@
 
   </div>
 
-
+  <script>
+    document.querySelectorAll('.delete')[0].addEventListener('click', function(){ 
+      fetch('/abc', {
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({a:1})
+      })    
+    })
+  </script>
 </body>
 </html>
