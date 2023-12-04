@@ -93,9 +93,8 @@ app.put('/edit',  async (req, res)=> {
   res.redirect('/list')
 })
 
-app.post('/abc',  async (req, res)=> {
-  console.log('안녕')
-  console.log(req.body)
+app.delete('delelte', async (req, res) => {
+  await db.collection('post').deleteOne({ _id :new ObjectId(req.query.docid)  })
+  res.send('삭제완료')
 })
-
 
