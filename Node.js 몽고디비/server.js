@@ -22,6 +22,28 @@ app.use(session({
 }))
 app.use(passport.session()) 
 
+const { S3Client } = require('@aws-sdk/client-s3')
+const multer = require('multer')
+const multerS3 = require('multer-s3')
+const s3 = new S3Client({
+  region : 'ap-northeast-2',
+  credentials : {
+      accessKeyId : process.env.S3_KEY,
+      secretAccessKey : process.env.S3_SECRET
+  }
+})
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'codingapplebuc',
+    key: function (요청, file, cb) {
+      cb(null, Date.now().toString()) //업로드시 파일명 변경가능
+    }
+  })
+})
+
+
 app.use(methodOverride('_method')) 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
@@ -33,8 +55,6 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
   if (!result) {
     return cb(null, false, { message: '아이디 DB에 없음' })
   }
-
-  
   if (await bcrypt.compare(입력한비번, result.password)) {
     return cb(null, result)
   } else {
@@ -75,7 +95,7 @@ function checklogin(요청, 응답, next){
   next()
 }
 
-app.use(checklogin)
+// app.use(checklogin)
 
 app.get('/', (요청, 응답)=> {
   응답.sendFile(__dirname + '/index.html')
@@ -102,13 +122,13 @@ app.get('/write', (req, res) => {
   res.render('write.ejs')
 })
 
-app.post('/add', async (req, res) => {
-  console.log(req.body)
+app.post('/add', upload.single('img1') ,async (req, res) => {
+
   try {
     if(req.body.title == ''){
       res.send('제목 입력해 주세요')
     } else {
-      await db.collection('post').insertOne({title : req.body.title, content :  req.body.content})
+      await db.collection('post').insertOne({title : req.body.title, content :  req.body.content, img : req.file.location})
     res.redirect('/list')
     }
   } catch(e) {
