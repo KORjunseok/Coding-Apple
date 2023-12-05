@@ -29,11 +29,20 @@
   </div>
 
   <script>
-    document.querySelectorAll('.delete')[0].addEventListener('click', function(e){
+    for (let i =0; i < '<%= 글목록.length %>'; i++) {
+    document.querySelectorAll('.delete')[i].addEventListener('click', function(e){
       fetch('/delete?docid=' + e.target.dataset.id, {
-        method : 'DELETE',
-      })    
+        method : 'DELETE'
+      })
+      .then((r)=> r.text())   
+      .then((r)=> {
+        e.target.parentElement.parentElement.style.display = 'none'
+        
     })
+    })
+  }
+
+
   </script>
 </body>
 </html>
