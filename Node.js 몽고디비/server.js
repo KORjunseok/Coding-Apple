@@ -7,6 +7,7 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const bcrypt = require('bcrypt') 
 const MongoStore = require('connect-mongo')
+require('dotenv').config()
 
 app.use(passport.initialize())
 app.use(session({
@@ -42,11 +43,11 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
 }))
 
 let db
-const url = 'mongodb+srv://sparta:test@cluster0.p7hon5t.mongodb.net/?retryWrites=true&w=majority'
+const url = process.env.DB_URL
 new MongoClient(url).connect().then((client)=>{
   console.log('DB연결성공')
   db = client.db('forum')
-  app.listen(8080, ()=> {
+  app.listen(process.env.PORT, ()=> {
     console.log('http://localhost:8080 에서 서버 실행 중 ')
   })
 }).catch((err)=>{
@@ -67,7 +68,14 @@ passport.deserializeUser(async (user, done) => {
   })
 })
 
+function checklogin(요청, 응답, next){
+  if(!요청.user) {
+    응답.send('로그인하십셔')
+  }
+  next()
+}
 
+app.use(checklogin)
 
 app.get('/', (요청, 응답)=> {
   응답.sendFile(__dirname + '/index.html')
