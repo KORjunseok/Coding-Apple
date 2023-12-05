@@ -2,6 +2,17 @@ const express = require('express');
 const app = express()
 const { MongoClient, ObjectId } = require('mongodb')
 const methodOverride = require('method-override')
+const session = require('express-session')
+const passport = require('passport')
+const LocalStrategy = require('passport-local')
+
+app.use(passport.initialize())
+app.use(session({
+  secret: '암호화에 쓸 비번',
+  resave : false,
+  saveUninitialized : false
+}))
+app.use(passport.session()) 
 
 app.use(methodOverride('_method')) 
 app.use(express.static(__dirname + '/public'));
@@ -9,6 +20,17 @@ app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) => {
+  let result = await db.collection('user').findOne({ username : 입력한아이디})
+  if (!result) {
+    return cb(null, false, { message: '아이디 DB에 없음' })
+  }
+  if (result.password == 입력한비번) {
+    return cb(null, result)
+  } else {
+    return cb(null, false, { message: '비번불일치' });
+  }
+}))
 
 let db
 const url = 'mongodb+srv://sparta:test@cluster0.p7hon5t.mongodb.net/?retryWrites=true&w=majority'
@@ -103,7 +125,16 @@ app.get('/list/:id', async (req, res) => {
   res.render('list.ejs', { 글목록 : result })
 })
 
-// app.get('/list/:id', async (req, res) => {
-//   let result = await db.collection('post').find().skip((req.params.id -1)*5).limit(5).toArray();
-//   res.render('list.ejs', { 글목록 : result })
-// })
+
+app.get('/login', async (req, res) => {
+  res.render('login.ejs')
+})
+
+app.post('/login', async (req, res, next) => {
+  passport.authenticate('local', (error, user, info)=>{
+    if (error) return res.status(500).json(error)
+    if (!user) return res.status(401).json(info.message)  
+      if (err) return next(err)
+      res.redirect('/')
+  })(req, res, next)
+})
