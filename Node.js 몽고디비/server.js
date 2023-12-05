@@ -10,7 +10,8 @@ app.use(passport.initialize())
 app.use(session({
   secret: '암호화에 쓸 비번',
   resave : false,
-  saveUninitialized : false
+  saveUninitialized : false,
+  cookie : { maxAge : 60* 60 * 1000 }
 }))
 app.use(passport.session()) 
 
@@ -43,6 +44,22 @@ new MongoClient(url).connect().then((client)=>{
 }).catch((err)=>{
   console.log(err)
 })
+
+passport.serializeUser((user, done) => {
+  process.nextTick(() => {
+    done(null, { id: user._id, username: user.username })
+  })
+})
+
+passport.deserializeUser(async (user, done) => {
+  let result = await db.collection('user').findOne({ _id : new ObjectId(user.id)})
+  delete result.password  
+  process.nextTick(() => {
+    done(null, result)
+  })
+})
+
+
 
 app.get('/', (요청, 응답)=> {
   응답.sendFile(__dirname + '/index.html')
@@ -127,14 +144,17 @@ app.get('/list/:id', async (req, res) => {
 
 
 app.get('/login', async (req, res) => {
+  console.log(req.user)
   res.render('login.ejs')
 })
 
 app.post('/login', async (req, res, next) => {
   passport.authenticate('local', (error, user, info)=>{
     if (error) return res.status(500).json(error)
-    if (!user) return res.status(401).json(info.message)  
-      if (err) return next(err)
-      res.redirect('/')
+    if (!user) return res.status(401).json(info.message) 
+    req.login(user, (err)=> {
+    if (err) return next(err)
+  res.redirect('/')
+}) 
   })(req, res, next)
 })
