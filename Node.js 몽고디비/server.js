@@ -214,6 +214,6 @@ app.use('/shop', require('./routes/shop.js'))
 
 app.get('/search', async (req, res) => {
   console.log(req.query.val)
-  let result = await db.collection('post').find({title : {$regex : req.query.val}}).toArray()
+  let result = await db.collection('post').find({$text : {$search: req.query.val}}).toArray()
   res.render('search.ejs', {글목록 : result})
 })
