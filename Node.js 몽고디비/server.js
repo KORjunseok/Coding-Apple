@@ -62,9 +62,10 @@ passport.use(new LocalStrategy(async (입력한아이디, 입력한비번, cb) =
   }
 }))
 
+let connectDB = require('./database.js')
+
 let db
-const url = process.env.DB_URL
-new MongoClient(url).connect().then((client)=>{
+connectDB.then((client)=>{
   console.log('DB연결성공')
   db = client.db('forum')
   app.listen(process.env.PORT, ()=> {
@@ -208,3 +209,5 @@ app.post('/register', async (req, res) => {
   })
   res.redirect('/')
 })
+
+app.use('/shop', require('./routes/shop.js'))
