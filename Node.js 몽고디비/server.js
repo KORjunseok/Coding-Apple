@@ -146,7 +146,8 @@ app.post('/add', upload.single('img1') ,async (req, res) => {
 
 app.get('/detail/:id',  async (req, res)=> {
   try {
-    console.log("id 확인: ", req.params);
+    let result2 = await db.collection('comment').find({ parentId : new ObjectId(req.params.id) }).toArray()
+
     let result = await db.collection('post').findOne({_id: new ObjectId(req.params.id)})
     // console.log("붐업: ",result)
     if (result == null) {
@@ -154,7 +155,7 @@ app.get('/detail/:id',  async (req, res)=> {
 
     }
     // console.log("id확인 : ",req.params.id)
-    res.render('detail.ejs', {result : result})
+    res.render('detail.ejs', {result : result, result2 : result2})
   } catch(e) {
     console.log("오류가 왜 나와 : ",e)
     res.status(400).send("이상한 URL 입력함")
@@ -231,4 +232,14 @@ app.get('/search', async (req, res) => {
 
   let result = await db.collection('post').aggregate(검색조건).toArray()
   res.render('search.ejs', {글목록 : result})
+})
+
+app.post('/comment', async (req, res)=> {
+  await db.collection('comment').insertOne({ 
+    content : req.body.content,
+    writerId : new ObjectId(req.user._id),
+    writer : req.user.username,
+    parentId : new ObjectId(req.body.parentId)
+  })
+  res.redirect('back')
 })
