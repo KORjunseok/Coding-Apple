@@ -129,7 +129,13 @@ app.post('/add', upload.single('img1') ,async (req, res) => {
     if(req.body.title == ''){
       res.send('제목 입력해 주세요')
     } else {
-      await db.collection('post').insertOne({title : req.body.title, content :  req.body.content, img : req.file.location})
+      await db.collection('post').insertOne({
+        title : req.body.title, 
+        content :  req.body.content, 
+        img : req.file ? req.file.location : '',
+        user : req.user._id,
+        username : req.user.username
+      })
     res.redirect('/list')
     }
   } catch(e) {
@@ -170,7 +176,9 @@ app.put('/edit',  async (req, res)=> {
 })
 
 app.delete('/delete', async (req, res) => {
-  await db.collection('post').deleteOne({ _id :new ObjectId(req.query.docid)  })
+  await db.collection('post').deleteOne({ _id :new ObjectId(req.query.docid),
+  user : new ObjectId(req.user._id)
+    })
   res.send('삭제완료')
 })
 
