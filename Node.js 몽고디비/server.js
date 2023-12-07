@@ -243,3 +243,25 @@ app.post('/comment', async (req, res)=> {
   })
   res.redirect('back')
 })
+
+app.get('/chat/request', async(req, res) => {
+  await db.collection('chatroom'),insertOne({
+    member : [req.user._id, new ObjectId(req.query.writerId)],
+    date : new Date()
+
+  })
+  res.redirect('/chat/list')
+
+})
+
+app.get('/chat/list', async(req, res) => {
+  let result = await db.collection('chatroom').find({
+    member : req.user._id
+  }).toArray()
+  res.render('chatList.ejs', {result : result})
+})
+
+app.get('/chat/detail/:id', async(req, res) => {
+  let result = await db.collection('chatroom').findOne({ _id : new ObjectId(req.params.id)})
+  res.render('chatDetail.ejs', {result : result})
+})
