@@ -7,6 +7,12 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const bcrypt = require('bcrypt') 
 const MongoStore = require('connect-mongo')
+
+const { createServer } = require('http')
+const { Server } = require('socket.io')
+const server = createServer(app)
+const io = new Server(server) 
+
 require('dotenv').config()
 
 app.use(passport.initialize())
@@ -68,7 +74,7 @@ let db
 connectDB.then((client)=>{
   console.log('DB연결성공')
   db = client.db('forum')
-  app.listen(process.env.PORT, ()=> {
+  server.listen(process.env.PORT, ()=> {
     console.log('http://localhost:8080 에서 서버 실행 중 ')
   })
 }).catch((err)=>{
@@ -264,4 +270,12 @@ app.get('/chat/list', async(req, res) => {
 app.get('/chat/detail/:id', async(req, res) => {
   let result = await db.collection('chatroom').findOne({ _id : new ObjectId(req.params.id)})
   res.render('chatDetail.ejs', {result : result})
+})
+
+io.on('connection', (socket)=> {
+
+  socket.on('age', (data)=> {
+    console.log('어떤 놈이 웹소켓 연결함', data)
+
+  })
 })
