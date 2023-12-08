@@ -298,11 +298,24 @@ app.get('/stream/list', (req, res) => {
     "Cache-Control": "no-cache",
   })
 
-  setInterval(()=> {
     res.write('event : msg\n')
     res.write('data : 바보\n\n')
-  },1000 )
- 
+});
 
+app.get('/stream/post', (요청, 응답) => {
+  응답.writeHead(200, {
+    "Connection": "keep-alive",
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
+  })
 
-})
+  const 찾을문서 = [
+      { $match: { operationType: 'insert' } }
+  ]
+  let changeStream = db.collection('post').watch(찾을문서)
+  changeStream.on('change', (result) => {
+    console.log('DB변동생김')
+    응답.write('event: msg\n')
+    응답.write(`data: ${JSON.stringify(result.fullDocument)}\n\n`)
+  })
+});
