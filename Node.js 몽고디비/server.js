@@ -280,12 +280,29 @@ io.on('connection', (socket)=> {
   })
 })
 
-socket.on('message-send', async (data) => {
-  await db.collection('chatMessage').insertOne({
-    parentRoom : new ObjectId(data.room),
-    content : data.msg,
-    who : new ObjectId(socket.request.session.passport.user.id)
+// socket.on('/message-send', async (data) => {
+//   await db.collection('chatMessage').insertOne({
+//     parentRoom : new ObjectId(data.room),
+//     content : data.msg,
+//     who : new ObjectId(socket.request.session.passport.user.id)
+//   })
+//   console.log('유저가 보낸거 : ', data) //{ room : ~~, msg : ~~~ }
+//   io.to(data.room).emit('broadcast', data.msg);
+// }) 
+
+app.get('/stream/list', (req, res) => {
+
+  res.writeHead(200, {
+    "Connection": "keep-alive",
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache",
   })
-  console.log('유저가 보낸거 : ', data) //{ room : ~~, msg : ~~~ }
-  io.to(data.room).emit('broadcast', data.msg);
-}) 
+
+  setInterval(()=> {
+    res.write('event : msg\n')
+    res.write('data : 바보\n\n')
+  },1000 )
+ 
+
+
+})
