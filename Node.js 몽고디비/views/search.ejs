@@ -22,6 +22,7 @@
 
     </script>
 
+    <h4>검색결과</h4>
   
   <div class="white-bg">
     <% for(let i = 0; i < 글목록.length; i++){ %>
@@ -39,35 +40,7 @@
 
   </div>
 
-  <a href="/list/next/<%= 글목록[글목록.length - 1]._id %>">다음</a>
 
-  <script>
-    for (let i =0; i < '<%= 글목록.length %>'; i++) {
-    document.querySelectorAll('.delete')[i].addEventListener('click', function(e){
-      fetch('/delete?docid=' + e.target.dataset.id, {
-        method : 'DELETE'
-      })
-      .then((r)=> r.text())   
-      .then((r)=> {
-        e.target.parentElement.parentElement.style.display = 'none'
-        
-    })
-    })
-  }
 
-    <!-- let eventSource = new EventSource('/stream/list')
-    eventSource.addEventListener('msg', function(e){
-      console.log(e.data);
-    }) -->
-
-    let eventSource
-  eventSource = new EventSource('/stream/post')
-  eventSource.addEventListener('msg', function (e){
-    console.log(e.data)
-    let 가져온거 = JSON.parse(e.data)
-    document.querySelector('.white-bg').insertAdjacentHTML('afterbegin', `<div class="list-box"><h4>${가져온거.title}</h4></div>`)
-  })
-  
-  </script>
 </body>
 </html>

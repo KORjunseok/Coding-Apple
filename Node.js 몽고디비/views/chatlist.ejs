@@ -22,18 +22,15 @@
 
     </script>
 
-  
+    <h4>나의 채팅방 목록 </h4>
   <div class="white-bg">
-    <% for(let i = 0; i < 글목록.length; i++){ %>
+    <% for(let i = 0; i < result.length; i++){ %>
       <div class="list-box">
-
-
         <h4>
-          <a href="/detail/<%= 글목록[i]._id %>"> <%= 글목록[i].title%></a>
-          <a href="/edit/<%= 글목록[i]._id %>">✏️</a>
-          <span class="delete" data-id ="<%= 글목록[i]._id %>">🗑️</span>
+          <a href="/chat/detail/<%= 글목록[i]._id %>">
+            채팅방 <%= i %>
         </h4>
-        <p>글내용임</p>
+        <p><%= 글목록[i]._id %></p>
       </div>
       <%  }  %>
 
@@ -55,19 +52,7 @@
     })
   }
 
-    <!-- let eventSource = new EventSource('/stream/list')
-    eventSource.addEventListener('msg', function(e){
-      console.log(e.data);
-    }) -->
 
-    let eventSource
-  eventSource = new EventSource('/stream/post')
-  eventSource.addEventListener('msg', function (e){
-    console.log(e.data)
-    let 가져온거 = JSON.parse(e.data)
-    document.querySelector('.white-bg').insertAdjacentHTML('afterbegin', `<div class="list-box"><h4>${가져온거.title}</h4></div>`)
-  })
-  
   </script>
 </body>
 </html>
