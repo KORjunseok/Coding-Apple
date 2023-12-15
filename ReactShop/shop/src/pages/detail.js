@@ -10,22 +10,36 @@ function Detail2(props) {
 
 function Detail(props) {
 
-  useEffect(()=> {
-    console.log('안녕')
-  })
 
-  let [count, setCount] = useState(0)
 
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(function (x) {
     return x.id == id;
   });
+  let [count, setCount] = useState(0)
+  let [alert, setalert] = useState(true)
+  let [num, setNum] = useState('')
+
+  // useEffect(()=> {
+  //   setTimeout(() => {setalert(false) }, 2000)
+  // }, [count])
+
+// useEffect(()=>{
+//     if (isNaN(num) == true){
+//       alert('그러지마세요')
+//     }
+//   }, [num])
+
 
   return (
     <div className="container">
-      <div className="alert alert-warning">
-        2초 이내 구매시 할인
-      </div>
+      {
+        alert == true ? <div className="alert alert-warning">
+        2초 이내 구매시 할인 
+      </div> : null 
+
+      }
+      
       {count}
       <button onClick = {()=> {setCount (count +1)}}> 버튼</button>
 
