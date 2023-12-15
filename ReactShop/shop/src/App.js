@@ -6,6 +6,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
 import Detail from "./pages/detail";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import axios from "axios";
 
 function App() {
   let [shoes] = useState(data);
@@ -54,6 +55,21 @@ function App() {
                   })}
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data2.json")
+                    .then((결과) => {
+                      console.log(결과.data);
+                    })
+                    .catch(() => {
+                      console.log("실패했어요");
+                    });
+                }}
+              >
+                {" "}
+                버튼{" "}
+              </button>
             </div>
           }
         />
@@ -65,10 +81,9 @@ function App() {
           <Route path="location" element={<div> 난 위치정보임 </div>} />
         </Route>
 
-        <Route path ="/event" element ={<EventPage/>}>
-          <Route path ="one" element ={<p>첫 주문시 양배추즙 서비스</p>} />
-          <Route path ="two" element ={<p>생일기념 쿠폰받기</p>} />
-
+        <Route path="/event" element={<EventPage />}>
+          <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>} />
+          <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
         </Route>
       </Routes>
     </div>
@@ -85,14 +100,13 @@ function About() {
 }
 
 function EventPage() {
-  return(
+  return (
     <div>
       <h2>오늘의 이벤트</h2>
       <Outlet></Outlet>
     </div>
-  )
+  );
 }
-
 
 function Card(props) {
   return (

@@ -2,10 +2,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function Detail2(props) {
-
-
-}
 
 
 function Detail(props) {
@@ -18,17 +14,7 @@ function Detail(props) {
   });
   let [count, setCount] = useState(0)
   let [alert, setalert] = useState(true)
-  let [num, setNum] = useState('')
 
-  // useEffect(()=> {
-  //   setTimeout(() => {setalert(false) }, 2000)
-  // }, [count])
-
-// useEffect(()=>{
-//     if (isNaN(num) == true){
-//       alert('그러지마세요')
-//     }
-//   }, [num])
 
 
   return (
