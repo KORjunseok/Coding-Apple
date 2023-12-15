@@ -9,7 +9,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let nevigate = useNavigate();
 
   return (
@@ -60,15 +60,16 @@ function App() {
                   axios
                     .get("https://codingapple1.github.io/shop/data2.json")
                     .then((결과) => {
-                      console.log(결과.data);
+                      
+                      let copy = [...shoes, ...결과.data]
+                      setShoes(copy);
                     })
                     .catch(() => {
                       console.log("실패했어요");
                     });
                 }}
               >
-                {" "}
-                버튼{" "}
+                더보기
               </button>
             </div>
           }
