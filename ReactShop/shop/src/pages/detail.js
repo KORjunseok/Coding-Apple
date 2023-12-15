@@ -1,15 +1,21 @@
 /* eslint-disable */
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
 
-let YellowBtn = styled.button`
-  background: ${ props => props.bg};
-  color:  ${ props => props.bg == 'blue' ? 'white' : 'black'};
-  padding: 10px;
-`;
+function Detail2(props) {
+
+
+}
 
 
 function Detail(props) {
+
+  useEffect(()=> {
+    console.log('안녕')
+  })
+
+  let [count, setCount] = useState(0)
+
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(function (x) {
     return x.id == id;
@@ -17,8 +23,11 @@ function Detail(props) {
 
   return (
     <div className="container">
-
-        <YellowBtn bg="blue">버튼</YellowBtn>
+      <div className="alert alert-warning">
+        2초 이내 구매시 할인
+      </div>
+      {count}
+      <button onClick = {()=> {setCount (count +1)}}> 버튼</button>
 
       <div className="row">
         <div className="col-md-6">
