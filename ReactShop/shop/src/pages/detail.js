@@ -75,12 +75,12 @@ function Detail(props) {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      <TabContent 탭={탭} />
+      <TabContent shoes={props.shoes} 탭={탭} />
     </div>
   );
 }
 
-function TabContent({탭}) {
+function TabContent({탭, shoes}) {
 
   let [fade, setFade] = useState('')
   
@@ -91,7 +91,7 @@ function TabContent({탭}) {
     }
   }, [탭])
   return (<div className={'start ' + fade} >
-    { [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    { [<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][탭]}
   </div>)
 
 
