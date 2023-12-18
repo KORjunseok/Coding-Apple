@@ -39,7 +39,14 @@ function Detail(props) {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(addItem({ id: 1, name: "Red Knit", count: 1 }));
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
 
@@ -80,22 +87,22 @@ function Detail(props) {
   );
 }
 
-function TabContent({탭, shoes}) {
+function TabContent({ 탭, shoes }) {
+  let [fade, setFade] = useState("");
 
-  let [fade, setFade] = useState('')
-  
   useEffect(() => {
-    setTimeout(() => {setFade('end') }, 100)
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
     return () => {
-      setFade('')
-    }
-  }, [탭])
-  return (<div className={'start ' + fade} >
-    { [<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][탭]}
-  </div>)
-
-
-
+      setFade("");
+    };
+  }, [탭]);
+  return (
+    <div className={"start " + fade}>
+      {[<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    </div>
+  );
 }
 
 export default Detail;
