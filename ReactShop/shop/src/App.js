@@ -1,14 +1,18 @@
 /* eslint-disable */
 
-import { createContext, Component, useState, useEffect } from "react";
+import { lazy, Suspense, createContext, Component, useState, useEffect } from "react";
 import "./App.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
-import Detail from "./pages/detail";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
-import Cart from './pages/Cart.js'
 import {useQuery} from "react-query"
+
+// import Detail from "./pages/detail";
+// import Cart from './pages/Cart.js'
+
+const Detail = lazy(() => import('./pages/detail.js'));
+const Cart = lazy(() => import('./pages/Cart.js'));
 
 let Context1 = createContext()
 
@@ -63,7 +67,7 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-
+      <Suspense fallback={ <div>로딩중임</div> }>
       <Routes>
         <Route
           path="/"
@@ -97,7 +101,6 @@ function App() {
             </div>
           }
         />
-
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
 
         <Route path = "/cart" element = {<Cart></Cart> } />
@@ -113,6 +116,7 @@ function App() {
           <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
         </Route>
       </Routes>
+      </Suspense>
     </div>
   );
 }
