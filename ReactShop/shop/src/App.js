@@ -8,6 +8,7 @@ import Detail from "./pages/detail";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 import Cart from './pages/Cart.js'
+import {useQuery} from "react-query"
 
 let Context1 = createContext()
 
@@ -27,6 +28,13 @@ function App() {
   let [재고] = useState([10, 11, 12])
   let nevigate = useNavigate();
 
+  let result = useQuery('작명', () => {
+    axios.get('https://codingapple1.github.io/userdata.json')
+    .then((a)=>{ 
+      console.log('요청됨')
+      return a.data })
+  })
+  
   return (
     <div className="App">
       <Navbar bg="dark" data-bs-theme="dark">
