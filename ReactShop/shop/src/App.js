@@ -1,22 +1,44 @@
 /* eslint-disable */
 
-import { createContext, Component, useState } from "react";
+import { lazy, Suspense, createContext, Component, useState, useEffect } from "react";
 import "./App.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import data from "./data";
-import Detail from "./pages/detail";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
-import Cart from './pages/Cart.js'
+import {useQuery} from "react-query"
+
+// import Detail from "./pages/detail";
+// import Cart from './pages/Cart.js'
+
+const Detail = lazy(() => import('./pages/detail.js'));
+const Cart = lazy(() => import('./pages/Cart.js'));
 
 let Context1 = createContext()
 
 function App() {
+
+  useEffect(()=> {
+    localStorage.setItem('watched', JSON.stringify([]))
+  }, [])
+
+  // let obj = {name : 'kim'}
+  
+  // localStorage.setItem('data', JSON.stringify(obj))
+  // let 꺼낸거 = localStorage.getItem('data')
+  // console.log(꺼낸거);
+
   let [shoes, setShoes] = useState(data);
   let [재고] = useState([10, 11, 12])
-
   let nevigate = useNavigate();
 
+  let result = useQuery('작명', () => {
+    axios.get('https://codingapple1.github.io/userdata.json')
+    .then((a)=>{ 
+      console.log('요청됨')
+      return a.data })
+  })
+  
   return (
     <div className="App">
       <Navbar bg="dark" data-bs-theme="dark">
@@ -45,7 +67,7 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-
+      <Suspense fallback={ <div>로딩중임</div> }>
       <Routes>
         <Route
           path="/"
@@ -79,7 +101,6 @@ function App() {
             </div>
           }
         />
-
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
 
         <Route path = "/cart" element = {<Cart></Cart> } />
@@ -95,6 +116,7 @@ function App() {
           <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
         </Route>
       </Routes>
+      </Suspense>
     </div>
   );
 }

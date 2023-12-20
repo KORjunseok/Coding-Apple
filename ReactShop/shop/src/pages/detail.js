@@ -39,7 +39,14 @@ function Detail(props) {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(addItem({ id: 1, name: "Red Knit", count: 1 }));
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
 
@@ -80,22 +87,33 @@ function Detail(props) {
   );
 }
 
-function TabContent({탭, shoes}) {
+function TabContent({ 탭, shoes }) {
+  let [fade, setFade] = useState("");
 
-  let [fade, setFade] = useState('')
+  useEffect(()=>{
+    let 꺼낸거 = localStorage.getItem('watched')
+    꺼낸거 = JSON.parse(꺼낸거)
+    꺼낸거.push(찾은상품.id)
   
+    //Set으로 바꿨다가 다시 array로 만들기
+    꺼낸거 = new Set(꺼낸거)
+    꺼낸거 = Array.from(꺼낸거)
+    localStorage.setItem('watched', JSON.stringify(꺼낸거))
+  }, [])
+
   useEffect(() => {
-    setTimeout(() => {setFade('end') }, 100)
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
     return () => {
-      setFade('')
-    }
-  }, [탭])
-  return (<div className={'start ' + fade} >
-    { [<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][탭]}
-  </div>)
-
-
-
+      setFade("");
+    };
+  }, [탭]);
+  return (
+    <div className={"start " + fade}>
+      {[<div>{shoes[0].title}</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    </div>
+  );
 }
 
 export default Detail;
