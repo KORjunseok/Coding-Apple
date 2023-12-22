@@ -1,12 +1,11 @@
 <template>
-  
-  <ModalVue/>
+  <ModalVue :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
 
   <div class="menu">
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
   </div>
 
-  <Discount/>
+  <Discount />
 
   <!-- v-for 문을 통한 반복문  -->
   <!-- <div v-for ="(a,i) in products" :key = "i"> -->
@@ -15,24 +14,15 @@
     <p>{{가격들[i]}} 만원</p>
  </div> -->
 
-  <div v-for="(a, i) in 원룸들" :key="i">
-    <img :src="원룸들[i].image" class="room-img" />
-    <h4
-      @click="
-        모달창열렸니 = true;
-        누른거 = i;
-      "
-    >
-      {{ 원룸들[i].title }}
-    </h4>
-    <p>{{ 원룸들[i].price }} 원</p>
-  </div>
+<CardVue :원룸들 = "원룸들"/>
+
 </template>
 
 <script>
 import data from "./assets/oneroom";
 import Discount from "./Discount.vue";
-import ModalVue from "./Modal.vue"
+import ModalVue from "./Modal.vue";
+import CardVue from "./Card.vue"
 
 export default {
   name: "App",
@@ -54,9 +44,7 @@ export default {
     },
   },
 
-  components: 
-  { Discount },
-  ModalVue : ModalVue
+  components: { Discount, ModalVue, CardVue },
 };
 </script>
 
