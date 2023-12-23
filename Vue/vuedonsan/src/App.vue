@@ -1,5 +1,5 @@
 <template>
-  <ModalVue :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
+  <ModalVue @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니" />
 
   <div class="menu">
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
@@ -14,7 +14,7 @@
     <p>{{가격들[i]}} 만원</p>
  </div> -->
 
-<CardVue :원룸 = "원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
+<CardVue @openModal="모달창열렸니 = true; 누른거 = $event" :원룸 = "원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
 
 </template>
 
