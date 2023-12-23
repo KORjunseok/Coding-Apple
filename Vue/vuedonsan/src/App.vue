@@ -14,7 +14,7 @@
     <p>{{가격들[i]}} 만원</p>
  </div> -->
 
-<CardVue :원룸들 = "원룸들"/>
+<CardVue :원룸 = "원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
 
 </template>
 
@@ -29,6 +29,7 @@ export default {
   // 데이터 보관함
   data() {
     return {
+      오브젝트 : {name : 'kim', age :20},
       누른거: 0,
       원룸들: data,
       모달창열렸니: false,
