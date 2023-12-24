@@ -19,6 +19,15 @@ export default {
       month :1,
     }
   },
+  watch : {
+    month(a){
+      if (isNaN(a) == true){
+        alert('문자입력하지마라');
+        this.month = 1;
+      }
+    },
+
+  },
   props : {
     원룸들 : Array,
     누른거 : Number,
