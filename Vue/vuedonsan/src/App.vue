@@ -9,7 +9,7 @@
     <a v-for="a in 메뉴들" :key="a">{{ a }}</a>
   </div>
 
-  <Discount />
+  <Discount v-if="showDiscount ==true" />
 
   <button @click="priceSort">가격순정렬</button>
   <button @click="sortBack">되돌리기</button>
@@ -31,6 +31,7 @@ export default {
   // 데이터 보관함
   data() {
     return {
+      showDiscount : true,
       원룸들오리지널 : [...data],
       오브젝트 : {name : 'kim', age :20},
       누른거: 0,
@@ -54,6 +55,11 @@ export default {
         return a.price - b.price;
       })
     }
+  },
+  mounted(){
+    setTimeout(()=>{
+      this.showDiscount = false;
+    }, 2000);
   },
 
   components: { Discount, ModalVue, CardVue },
