@@ -11,12 +11,10 @@
 
   <Discount />
 
-  <!-- v-for 문을 통한 반복문  -->
-  <!-- <div v-for ="(a,i) in products" :key = "i"> -->
-  <!-- {{ 데이터바인딩 }} -->
-  <!-- <h4 >{{ products[i] }}</h4>
-    <p>{{가격들[i]}} 만원</p>
- </div> -->
+  <button @click="priceSort">가격순정렬</button>
+  <button @click="sortBack">되돌리기</button>
+
+
 
 <CardVue @openModal="모달창열렸니 = true; 누른거 = $event" :원룸 = "원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
 
@@ -33,6 +31,7 @@ export default {
   // 데이터 보관함
   data() {
     return {
+      원룸들오리지널 : [...data],
       오브젝트 : {name : 'kim', age :20},
       누른거: 0,
       원룸들: data,
@@ -47,6 +46,14 @@ export default {
     increase(a) {
       this.신고수[a] += 1;
     },
+    sortBack(){
+      this.원룸들 = [...this.원룸들오리지널];
+    },
+    priceSort(){
+      this.원룸들.sort(function(a,b){
+        return a.price - b.price;
+      })
+    }
   },
 
   components: { Discount, ModalVue, CardVue },
