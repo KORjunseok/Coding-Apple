@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">글목록</a>
+        <router-link to="/list"><a class="nav-link" href="#">리스트 페이지</a></router-link>
         <a class="nav-link" href="#">상세페이지</a>
         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
       </div>
@@ -18,18 +18,19 @@
   </div>
 </nav>
 
-<div class="container mt-4">
-  <h5>React 개발자의 블로그입니다.</h5>
-  <p>- Vue로 만들었습니다. -</p>
-</div>
+<router-link to="/">홈페이지</router-link>
+<router-link to="/list">리스트페이지</router-link>
+<router-link to="/detail">디테일페이지</router-link>
 
-<List :블로그글="블로그글"/>
+<router-view :블로그글="블로그글"></router-view>
+
+<!-- <List :블로그글="블로그글"/> -->
 
 </template>
 
 <script>
 
-import List from "./components/List.vue"
+// import List from "./components/List.vue"
 import blog from "./assets/blog"
 
 export default {
@@ -40,7 +41,7 @@ export default {
     }
   },
   components: {
-    List : List
+    // List : List
 
   }
 }
