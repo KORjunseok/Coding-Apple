@@ -1,11 +1,18 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <h4>여긴 상세 페이지다 돌아가라 오바</h4>
+    
+  <div>
+    <h4>상세페이지</h4>
+    <h5>{{블로그글[$route.params.id].title}}</h5>
+    <p>{{블로그글[$route.params.id].content}}</p>
+  </div>
 </template>
 
 <script>
 export default {
-
+  props : {
+    블로그글 : Array,
+  }
 }
 </script>
 
