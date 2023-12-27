@@ -1,16 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <!-- eslint-disable vue/valid-template-root -->
 <template>
-  <div class="post" v-for="(작명,i) in 인스타데이터" :key="작명">
+  <div class="post">
     <div class="post-header">
       <div class="profile"></div>
-      <span class="profile-name">{{인스타데이터[i].name}}</span>
+      <span class="profile-name">{{인스타데이터.name}}</span>
     </div>
-    <div class="post-body"></div>
+    <div class="post-body" :style="{backgroundImage : `url(${인스타데이터.postImage})`}"></div>
     <div class="post-content">
-      <p>{{인스타데이터[i].likes}}</p>
-      <p><strong>글쓴이아이디</strong> {{인스타데이터[i].content}}</p>
-      <p class="date">{{인스타데이터[i].date}}</p>
+      <p>{{인스타데이터.likes}}</p>
+      <p><strong>{{인스타데이터.name}}</strong> {{인스타데이터.content}}</p>
+      <p class="date">{{인스타데이터.date}}</p>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@
 export default {
   name : 'postVue',
   props : {
-    인스타데이터 : Array,
+    인스타데이터 : Object,
   }
 };
 </script>
