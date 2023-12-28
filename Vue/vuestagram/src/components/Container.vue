@@ -15,7 +15,11 @@
       <!-- 필터선택페이지 -->
       <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="filters">
-        <FilterBox :이미지="이미지" v-for="a in 필터들" :key="a"></FilterBox>
+        <FilterBox :필터="필터" :이미지="이미지" v-for="필터 in 필터들" :key="필터">
+          <span style="color:blueviolet">{{ 필터 }}</span>
+          <!-- <template v-slot:a> <span>데이터1</span></template>
+          <template v-slot:b> 데이터2</template> -->
+        </FilterBox>
 
 
       </div>
