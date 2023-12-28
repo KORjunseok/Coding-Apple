@@ -4,18 +4,30 @@
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li>Next</li>
+      <li v-if="step == 1" @click="step++">Next</li>
+      <li v-if="step == 2" @click="publish">발행</li>
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :인스타데이터="인스타데이터" :step="step"/>
+  <Container
+    @write="작성한글 = $event"
+    :이미지="이미지"
+    :인스타데이터="인스타데이터"
+    :step="step"
+  />
 
   <button @click="more">더보기</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input @change="upload" multiple type="file" id="file" class="inputfile" />
+      <input
+        @change="upload"
+        multiple
+        type="file"
+        id="file"
+        class="inputfile"
+      />
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
@@ -26,45 +38,60 @@
   <button @click="step = 0">버튼0</button>
   <button @click="step = 1">버튼1</button>
   <button @click="step = 2">버튼2</button> -->
-
-
 </template>
 
 <script>
-import Container from './components/Container.vue'
-import instaData from './assets/instaData'
-import axios from 'axios'
+import Container from "./components/Container.vue";
+import instaData from "./assets/instaData";
+import axios from "axios";
 // axios.get()
 
 export default {
   name: "App",
-  data(){
+  data() {
     return {
-      step : 0,
-      인스타데이터 : instaData,
-      더보기 : 0,
-    }
+      step: 0,
+      인스타데이터: instaData,
+      더보기: 0,
+      이미지: "",
+      작성한글: "",
+    };
   },
   components: {
-    Container : Container,
+    Container: Container,
   },
-  methods : {
-    more(){
-      axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
-      .then((결과)=>{
-        this.인스타데이터.push(결과.data);
-        this.더보기++;
-      })
+  methods: {
+    publish() {
+      var 내게시물 = {
+        name: "Kim Hyun",
+        userImage: "https://picsum.photos/100?random=1",
+        postImage: this.이미지,
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.작성한글,
+        filter: "perpetua",
+      };
+      this.인스타데이터.unshift(내게시물);
+      this.step = 0;
     },
-    upload(e){
-      let 파일 = e.target.files
+    more() {
+      axios
+        .get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
+        .then((결과) => {
+          this.인스타데이터.push(결과.data);
+          this.더보기++;
+        });
+    },
+    upload(e) {
+      let 파일 = e.target.files;
       // console.log(파일[0])
-      let url = URL.createObjectURL(파일[0])
-      console.log("와우:",url)
+      let url = URL.createObjectURL(파일[0]);
+      console.log("와우:", url);
+      this.이미지 = url;
       this.step++;
-
-    }
-  }
+    },
+  },
 };
 </script>
 
