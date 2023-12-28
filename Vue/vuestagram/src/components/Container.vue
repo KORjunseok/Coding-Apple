@@ -13,7 +13,7 @@
 
     <div v-if="step == 1">
       <!-- 필터선택페이지 -->
-      <div class="upload-image"></div>
+      <div class="upload-image" style="backgroundImage: `url()` ;"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
