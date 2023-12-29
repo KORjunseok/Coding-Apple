@@ -1,7 +1,7 @@
 <template>
-  <div :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`">
+  <div @click="fire" :class="필터 + ' filter-item'" :style="`background-image:url(${이미지})`">
     <slot></slot>
-    <button @click="fire">버튼</button>
+    <!-- <button @click="fire">버튼</button> -->
   </div> 
   
 </template>
@@ -11,7 +11,7 @@ export default {
   name : 'filterBox',
   methods: {
     fire(){
-      this.emitter.emit('작명', '데이터')
+      this.emitter.emit('박스클릭함', 'this.필터')
     }
   },
   data(){

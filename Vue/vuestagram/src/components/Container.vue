@@ -13,7 +13,7 @@
 
     <div v-if="step == 1">
       <!-- 필터선택페이지 -->
-      <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
+      <div :class="선택한필터" class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="filters">
         <FilterBox :필터="필터" :이미지="이미지" v-for="필터 in 필터들" :key="필터">
           <span style="color:blueviolet">{{ 필터 }}</span>
@@ -27,7 +27,7 @@
 
     <div v-if="step == 2">
       <!-- 글작성페이지 -->
-      <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
+      <div :class="선택한필터" class="upload-image" :style="`background-image:url(${이미지})`"></div>
       <div class="write">
         <textarea class="write-box">write!</textarea>
       </div>
@@ -45,13 +45,20 @@ export default {
     return {
     필터들 : [ "aden", "_1977", "brannan", "ㄴbrooklyn", "clarendon", "earlybird", "gingham", "hudson", 
     "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
-    "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"]
+    "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
+    선택한필터: '',
   }
 },
   props: {
     인스타데이터: Array,
     step: Number,
     이미지: String
+  },
+  mounted(){
+    this.emitter.on('박스클릭함', (a) => {
+      this.선택한필터 = a
+      // console.log("무야호",a)
+    })
   },
   components: {
     Post: Post,
