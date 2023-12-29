@@ -6,9 +6,9 @@
       <div class="profile"></div>
       <span class="profile-name">{{인스타데이터.name}}</span>
     </div>
-    <div :class="인스타데이터.filter" class="post-body" :style="{backgroundImage : `url(${인스타데이터.postImage})`}"></div>
+    <div @click="$store.commit('좋아요')" :class="인스타데이터.filter" class="post-body" :style="{backgroundImage : `url(${인스타데이터.postImage})`}"></div>
     <div class="post-content">
-      <p>{{인스타데이터.likes}}</p>
+      <p>{{$store.state.likes}} Likes</p>
       <p><strong>{{인스타데이터.name}}</strong> {{인스타데이터.content}}</p>
       <p class="date">{{인스타데이터.date}}</p>
     </div>
