@@ -16,6 +16,8 @@
   <h4>나이 {{ $store.state.age }}</h4>
   <button @click="$store.commit('나이변경', 10)">버튼</button>
 
+  <p>{{ $store.state.more }}</p>
+  <button @click="$store.dispatch('getData')">더보기버튼</button>
 
   <Container
     @write="작성한글 = $event"
