@@ -2,10 +2,10 @@
 <template>
   <div style="padding : 10px">
   <h4>팔로워</h4>
-  <input placeholder="?" />
-  <div class="post-header">
-    <div class="profile" style="background-image:url()"></div>
-    <span class="profile-name">{{follower}}</span>
+  <input placeholder="?" @input="search($event.target.value)" />
+  <div class="post-header" v-for="(a,i) in follower" :key="i">
+    <div class="profile" :style="`background-image:url(${a.image})`"></div>
+    <span class="profile-name">{{a.name}}</span>
   </div>
 </div>
 </template>
@@ -15,8 +15,13 @@ import {onMounted, ref} from 'vue'
 import axios from 'axios'
 export default {
   name : 'mypageVue',
+  props : {
+    one : Number
+  },
   setup(){
     let follower = ref([]);
+    
+
     onMounted(()=>{
       axios.get('/follower.json').then((a)=>{
       follower.value = a.data
