@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-unused-components -->
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
@@ -33,11 +34,20 @@
       </div>
     </div>
   </div>
+
+  <div v-if="step == 3">
+  <MyPage/>
+
+  </div>
 </template>
+
+
+
 
 <script>
 import Post from "./Post.vue";
 import FilterBox from "./FilterBox.vue"
+import MyPage from './MyPage.vue'
 
 export default {
   name: "containerVue",
@@ -62,7 +72,9 @@ export default {
   },
   components: {
     Post: Post,
-    FilterBox : FilterBox
+    FilterBox : FilterBox,
+    // eslint-disable-next-line vue/no-unused-components
+    MyPage : MyPage
   },
 };
 </script>

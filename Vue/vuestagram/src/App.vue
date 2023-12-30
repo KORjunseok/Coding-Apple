@@ -63,7 +63,7 @@ export default {
   name: "App",
   data() {
     return {
-      step: 0,
+      step: 3,
       인스타데이터: instaData,
       더보기: 0,
       이미지: "",
