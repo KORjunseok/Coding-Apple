@@ -6,9 +6,8 @@ export default async function List() {
 
   return (
     <div className="list-bg">
-      <p>뭔데</p>
       {result.map((a, i) => (
-        <div className="list-item">
+        <div className="list-item" key={i}>
           <h4>{result[i].title}</h4>
           <p>{result[i].content}</p>
         </div>
