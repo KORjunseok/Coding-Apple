@@ -11,7 +11,9 @@ export default async function List() {
       {result.map((a, i) => (
         <div className="list-item" key={i}>
           <Link href={'/detail/' + result[i]._id}><h4>{result[i].title}</h4></Link>
-          <DetailLink/>
+          {/* <DetailLink/> */}
+          <Link href={'/edit/' + result[i]._id}>✏️</Link>
+
           <p>{result[i].content}</p>
         </div>
       ))}
