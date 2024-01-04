@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
   if (req.method == "POST") {
-    // console.log(req.body)
+
     let 변경할거 = {
       title: req.body.title,
       content: req.body.content,

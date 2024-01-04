@@ -7,7 +7,7 @@ export default async function Edit(props){
 
   await db.collection('post').updateOne({}, {$set : {title : '바보'}})
 
-  console.log(result)
+
 
 
   return (
