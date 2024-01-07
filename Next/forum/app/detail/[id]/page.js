@@ -8,12 +8,16 @@ export default async function Detail(props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.id) });
 
+  if (result === null) {
+    return <div>404 없는 페이지에요</div>;
+  }
+
   return (
     <div>
       <h4>상세페이지</h4>
       <h4>{result.title}</h4>
       <p>{result.content}</p>
-      <Comment _id={result._id.toString()}/>
+      <Comment _id={result._id.toString()} />
     </div>
   );
 }

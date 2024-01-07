@@ -25,7 +25,8 @@ export default function Comment(props){
       <input onChange={(e)=>{ setComment(e.target.value)}}/>
       <button onClick={()=>{
         console.log(comment)
-        fetch('/api/comment/new', {method : 'POST', body : JSON.stringify({comment : comment, _id : props._id})})}}>댓글전송</button>
+        fetch('/api/comment/new', {method : 'POST', body : JSON.stringify({comment : comment, _id : props._id})
+        })}}>댓글전송</button>
     </div>
   );
 }
