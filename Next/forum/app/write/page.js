@@ -5,6 +5,8 @@ export default function Write(){
       <form action="/api/post/new" method="POST">
         <input name="title" placeholder="글제목"></input>
         <input name="content" placeholder="글내용"></input>
+        <input type="file" accept="image/*"/>
+        <img src=""/>
         <button type="submit">버튼</button>
       </form>
     </div>
