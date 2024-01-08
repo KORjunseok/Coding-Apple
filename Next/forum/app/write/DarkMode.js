@@ -1,17 +1,17 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
+// import { useEffect } from "react"
 
 
 export default function DarkMode(){
   let router = useRouter()
-  useEffect(()=>{
-    let 쿠키값 = ('; '+document.cookie).split(`; mode=`).pop().split(';')[0]
-    if (쿠키값 == ''){
-    document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
-    }
-  },[])
+  // useEffect(()=>{
+  //   let 쿠키값 = ('; '+document.cookie).split(`; mode=`).pop().split(';')[0]
+  //   if (쿠키값 == ''){
+  //   document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400)
+  //   }
+  // },[])
   return (
     <span onClick={()=>{
       let 쿠키값 = ('; '+document.cookie).split(`; mode=`).pop().split(';')[0]
