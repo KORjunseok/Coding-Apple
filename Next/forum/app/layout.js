@@ -4,6 +4,7 @@ import Link from "next/link";
 import LoginBtn from "./LoginBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import {cookies} from 'next/headers'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +15,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions)
-  console.log(session)
+
+  let res = cookies().get('name')
+  console.log(res)
   return (
     <html lang="en">
       <body>
-        <div className="navbar">
+           <div className="navbar">
           <Link href="/" className="logo">
             Appleforum
           </Link>
